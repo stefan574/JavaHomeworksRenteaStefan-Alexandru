@@ -121,8 +121,7 @@ static void forLong() {
         if (!(result>original))
             System.out.println("Greater than: " + result + " > " + original + " : False");
         else
-            System.out.println("Greater than: " + result + " > " + original + " : True");
-        
+            System.out.println("Greater than: " + result + " > " + original + " : True");       
         if (!(result>=original))
             System.out.println("Greater than or equal to: " + result + " >= " + original + " : False");
         else
@@ -195,8 +194,7 @@ static void forShort() {
         if (!(result>original))
             System.out.println("Greater than: " + result + " > " + original + " : False");
         else
-            System.out.println("Greater than: " + result + " > " + original + " : True");
-        
+            System.out.println("Greater than: " + result + " > " + original + " : True");       
         if (!(result>=original))
             System.out.println("Greater than or equal to: " + result + " >= " + original + " : False");
         else
@@ -269,8 +267,7 @@ static void forByte() {
         if (!(result>original))
             System.out.println("Greater than: " + result + " > " + original + " : False");
         else
-            System.out.println("Greater than: " + result + " > " + original + " : True");
-        
+            System.out.println("Greater than: " + result + " > " + original + " : True");        
         if (!(result>=original))
             System.out.println("Greater than or equal to: " + result + " >= " + original + " : False");
         else
@@ -344,8 +341,7 @@ static void forChar() {
         if (!(result>original))
             System.out.println("Greater than: " + result + " > " + original + " : False");
         else
-            System.out.println("Greater than: " + result + " > " + original + " : True");
-        
+            System.out.println("Greater than: " + result + " > " + original + " : True");   
         if (!(result>=original))
             System.out.println("Greater than or equal to: " + result + " >= " + original + " : False");
         else
@@ -412,8 +408,7 @@ static void forFloat() {
         if (!(result>original))
             System.out.println("Greater than: " + result + " > " + original + " : False");
         else
-            System.out.println("Greater than: " + result + " > " + original + " : True");
-        
+            System.out.println("Greater than: " + result + " > " + original + " : True");       
         if (!(result>=original))
             System.out.println("Greater than or equal to: " + result + " >= " + original + " : False");
         else
@@ -471,8 +466,7 @@ static void forDouble() {
         if (!(result>original))
             System.out.println("Greater than: " + result + " > " + original + " : False");
         else
-            System.out.println("Greater than: " + result + " > " + original + " : True");
-        
+            System.out.println("Greater than: " + result + " > " + original + " : True");        
         if (!(result>=original))
             System.out.println("Greater than or equal to: " + result + " >= " + original + " : False");
         else
@@ -581,8 +575,7 @@ static void forIntWrapper() {
         if (!(result>original))
             System.out.println("Greater than: " + result + " > " + original + " : False");
         else
-            System.out.println("Greater than: " + result + " > " + original + " : True");
-        
+            System.out.println("Greater than: " + result + " > " + original + " : True");       
         if (!(result>=original))
             System.out.println("Greater than or equal to: " + result + " >= " + original + " : False");
         else
@@ -654,8 +647,7 @@ static void forLongWrapper() {
         if (!(result>original))
             System.out.println("Greater than: " + result + " > " + original + " : False");
         else
-            System.out.println("Greater than: " + result + " > " + original + " : True");
-        
+            System.out.println("Greater than: " + result + " > " + original + " : True");      
         if (!(result>=original))
             System.out.println("Greater than or equal to: " + result + " >= " + original + " : False");
         else
@@ -716,8 +708,7 @@ static void forShortWrapper() {
         if (!(result>original))
             System.out.println("Greater than: " + result + " > " + original + " : False");
         else
-            System.out.println("Greater than: " + result + " > " + original + " : True");
-        
+            System.out.println("Greater than: " + result + " > " + original + " : True");       
         if (!(result>=original))
             System.out.println("Greater than or equal to: " + result + " >= " + original + " : False");
         else
@@ -778,8 +769,7 @@ static void forByteWrapper() {
         if (!(result>original))
             System.out.println("Greater than: " + result + " > " + original + " : False");
         else
-            System.out.println("Greater than: " + result + " > " + original + " : True");
-        
+            System.out.println("Greater than: " + result + " > " + original + " : True");        
         if (!(result>=original))
             System.out.println("Greater than or equal to: " + result + " >= " + original + " : False");
         else
@@ -841,8 +831,7 @@ static void forCharWrapper() {
         if (!(result>original))
             System.out.println("Greater than: " + result + " > " + original + " : False");
         else
-            System.out.println("Greater than: " + result + " > " + original + " : True");
-        
+            System.out.println("Greater than: " + result + " > " + original + " : True");     
         if (!(result>=original))
             System.out.println("Greater than or equal to: " + result + " >= " + original + " : False");
         else
@@ -908,8 +897,7 @@ static void forFloatWrapper() {
         if (!(result>original))
             System.out.println("Greater than: " + result + " > " + original + " : False");
         else
-            System.out.println("Greater than: " + result + " > " + original + " : True");
-        
+            System.out.println("Greater than: " + result + " > " + original + " : True");       
         if (!(result>=original))
             System.out.println("Greater than or equal to: " + result + " >= " + original + " : False");
         else
@@ -966,8 +954,7 @@ static void forDoubleWrapper() {
         if (!(result>original))
             System.out.println("Greater than: " + result + " > " + original + " : False");
         else
-            System.out.println("Greater than: " + result + " > " + original + " : True");
-        
+            System.out.println("Greater than: " + result + " > " + original + " : True");       
         if (!(result>=original))
             System.out.println("Greater than or equal to: " + result + " >= " + original + " : False");
         else
