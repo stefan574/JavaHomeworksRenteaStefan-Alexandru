@@ -30,31 +30,19 @@ static void forInt() {
         System.out.println("Increment prefix: ++var : " + ++result);
         System.out.println("Unary minus: var = -var : " + -result);
         
-        System.out.println("\nAssignement Operators:\n");  
-        result = original;
-        System.out.println("Simple assignment: var = " + result);  
-        result += 1; 
-        System.out.println("Additive assignment: var += 1 : " + result);      
-        result -= 8;
-        System.out.println("Subtraction assignment: var -= 8 : " + result);       
-        result *= 7;
-        System.out.println("Multiplication assignment: var *= 7 : " + result);       
-        result /= 4;
-        System.out.println("Division assignment: var /= 4 : " + result);  
-        result %= 6;
-        System.out.println("Remainder assignment: var %= 6 : " + result);
-        result |= 11;
-        System.out.println("Binary inclusive OR assignment: var |= 11 : " + result);
-        result &= 9;
-        System.out.println("Binary AND assignment: var &= 9 : " + result);
-        result ^= 2;
-        System.out.println("Binary exclusive OR assignment: var ^= 2 : " + result);
-        result >>= 5;
-        System.out.println("Signed right shift assignment: var >>= 5 : " + result);
-        result <<= 10;
-        System.out.println("Signed left shift assignment: var <<= 10 : " + result);
-        result >>>= 3;
-        System.out.println("Unsigned right shift assignment: var >>>= 3 : " + result);
+        System.out.println("\nAssignement Operators:\n");
+        System.out.println("Simple assignment: var = " + (result = original));
+        System.out.println("Additive assignment: var += 1 : " + (result += 1));
+        System.out.println("Subtraction assignment: var -= 8 : " + (result -= 8));
+        System.out.println("Multiplication assignment: var *= 7 : " + (result *= 7)); 
+        System.out.println("Division assignment: var /= 4 : " + (result /= 4)); 
+        System.out.println("Remainder assignment: var %= 6 : " + (result %= 6));
+        System.out.println("Binary inclusive OR assignment: var |= 11 : " + (result |= 11));
+        System.out.println("Binary AND assignment: var &= 9 : " + (result &= 9));
+        System.out.println("Binary exclusive OR assignment: var ^= 2 : " + (result ^= 2));
+        System.out.println("Signed right shift assignment: var >>= 5 : " + (result >>= 5));
+        System.out.println("Signed left shift assignment: var <<= 10 : " + (result <<= 10));
+        System.out.println("Unsigned right shift assignment: var >>>= 3 : " + (result >>>= 3));
         
         System.out.println("\nRelational Operators:\n");       
         if (!(result>original))
@@ -115,31 +103,19 @@ static void forLong() {
         System.out.println("Increment prefix: ++var : " + ++result);
         System.out.println("Unary minus: var = -var : " + -result);
         
-        System.out.println("\nAssignement Operators:\n");  
-        result = original;
-        System.out.println("Simple assignment: var = " + result);  
-        result += 1; 
-        System.out.println("Additive assignment: var += 1 : " + result);      
-        result -= 8;
-        System.out.println("Subtraction assignment: var -= 8 : " + result);       
-        result *= 7;
-        System.out.println("Multiplication assignment: var *= 7 : " + result);       
-        result /= 4;
-        System.out.println("Division assignment: var /= 4 : " + result);  
-        result %= 6;
-        System.out.println("Remainder assignment: var %= 6 : " + result);
-        result |= 11;
-        System.out.println("Binary inclusive OR assignment: var |= 11 : " + result);
-        result &= 9;
-        System.out.println("Binary AND assignment: var &= 9 : " + result);
-        result ^= 2;
-        System.out.println("Binary exclusive OR assignment: var ^= 2 : " + result);
-        result >>= 5;
-        System.out.println("Signed right shift assignment: var >>= 5 : " + result);
-        result <<= 10;
-        System.out.println("Signed left shift assignment: var <<= 10 : " + result);
-        result >>>= 3;
-        System.out.println("Unsigned right shift assignment: var >>>= 3 : " + result);
+        System.out.println("\nAssignement Operators:\n");
+        System.out.println("Simple assignment: var = " + (result = original));
+        System.out.println("Additive assignment: var += 1 : " + (result += 1));
+        System.out.println("Subtraction assignment: var -= 8 : " + (result -= 8));
+        System.out.println("Multiplication assignment: var *= 7 : " + (result *= 7)); 
+        System.out.println("Division assignment: var /= 4 : " + (result /= 4)); 
+        System.out.println("Remainder assignment: var %= 6 : " + (result %= 6));
+        System.out.println("Binary inclusive OR assignment: var |= 11 : " + (result |= 11));
+        System.out.println("Binary AND assignment: var &= 9 : " + (result &= 9));
+        System.out.println("Binary exclusive OR assignment: var ^= 2 : " + (result ^= 2));
+        System.out.println("Signed right shift assignment: var >>= 5 : " + (result >>= 5));
+        System.out.println("Signed left shift assignment: var <<= 10 : " + (result <<= 10));
+        System.out.println("Unsigned right shift assignment: var >>>= 3 : " + (result >>>= 3));
         
         System.out.println("\nRelational Operators:\n");       
         if (!(result>original))
@@ -201,31 +177,19 @@ static void forShort() {
         System.out.println("Increment prefix: ++var : " + ++result);
         System.out.println("Unary minus: var = -var : " + -result);
         
-        System.out.println("\nAssignement Operators:\n");  
-        result = original;
-        System.out.println("Simple assignment: var = " + result);  
-        result += 1; 
-        System.out.println("Additive assignment: var += 1 : " + result);      
-        result -= 8;
-        System.out.println("Subtraction assignment: var -= 8 : " + result);       
-        result *= 7;
-        System.out.println("Multiplication assignment: var *= 7 : " + result);       
-        result /= 4;
-        System.out.println("Division assignment: var /= 4 : " + result);  
-        result %= 6;
-        System.out.println("Remainder assignment: var %= 6 : " + result);
-        result |= 11;
-        System.out.println("Binary inclusive OR assignment: var |= 11 : " + result);
-        result &= 9;
-        System.out.println("Binary AND assignment: var &= 9 : " + result);
-        result ^= 2;
-        System.out.println("Binary exclusive OR assignment: var ^= 2 : " + result);
-        result >>= 5;
-        System.out.println("Signed right shift assignment: var >>= 5 : " + result);
-        result <<= 10;
-        System.out.println("Signed left shift assignment: var <<= 10 : " + result);
-        result >>>= 3;
-        System.out.println("Unsigned right shift assignment: var >>>= 3 : " + result);
+        System.out.println("\nAssignement Operators:\n");
+        System.out.println("Simple assignment: var = " + (result = original));
+        System.out.println("Additive assignment: var += 1 : " + (result += 1));
+        System.out.println("Subtraction assignment: var -= 8 : " + (result -= 8));
+        System.out.println("Multiplication assignment: var *= 7 : " + (result *= 7)); 
+        System.out.println("Division assignment: var /= 4 : " + (result /= 4)); 
+        System.out.println("Remainder assignment: var %= 6 : " + (result %= 6));
+        System.out.println("Binary inclusive OR assignment: var |= 11 : " + (result |= 11));
+        System.out.println("Binary AND assignment: var &= 9 : " + (result &= 9));
+        System.out.println("Binary exclusive OR assignment: var ^= 2 : " + (result ^= 2));
+        System.out.println("Signed right shift assignment: var >>= 5 : " + (result >>= 5));
+        System.out.println("Signed left shift assignment: var <<= 10 : " + (result <<= 10));
+        System.out.println("Unsigned right shift assignment: var >>>= 3 : " + (result >>>= 3));
         
         System.out.println("\nRelational Operators:\n");       
         if (!(result>original))
@@ -287,31 +251,19 @@ static void forByte() {
         System.out.println("Increment prefix: ++var : " + ++result);
         System.out.println("Unary minus: var = -var : " + -result);
         
-        System.out.println("\nAssignement Operators:\n");  
-        result = original;
-        System.out.println("Simple assignment: var = " + result);  
-        result += 1; 
-        System.out.println("Additive assignment: var += 1 : " + result);      
-        result -= 8;
-        System.out.println("Subtraction assignment: var -= 8 : " + result);       
-        result *= 7;
-        System.out.println("Multiplication assignment: var *= 7 : " + result);       
-        result /= 4;
-        System.out.println("Division assignment: var /= 4 : " + result);  
-        result %= 6;
-        System.out.println("Remainder assignment: var %= 6 : " + result);
-        result |= 11;
-        System.out.println("Binary inclusive OR assignment: var |= 11 : " + result);
-        result &= 9;
-        System.out.println("Binary AND assignment: var &= 9 : " + result);
-        result ^= 2;
-        System.out.println("Binary exclusive OR assignment: var ^= 2 : " + result);
-        result >>= 5;
-        System.out.println("Signed right shift assignment: var >>= 5 : " + result);
-        result <<= 10;
-        System.out.println("Signed left shift assignment: var <<= 10 : " + result);
-        result >>>= 3;
-        System.out.println("Unsigned right shift assignment: var >>>= 3 : " + result);
+        System.out.println("\nAssignement Operators:\n");
+        System.out.println("Simple assignment: var = " + (result = original));
+        System.out.println("Additive assignment: var += 1 : " + (result += 1));
+        System.out.println("Subtraction assignment: var -= 8 : " + (result -= 8));
+        System.out.println("Multiplication assignment: var *= 7 : " + (result *= 7)); 
+        System.out.println("Division assignment: var /= 4 : " + (result /= 4)); 
+        System.out.println("Remainder assignment: var %= 6 : " + (result %= 6));
+        System.out.println("Binary inclusive OR assignment: var |= 11 : " + (result |= 11));
+        System.out.println("Binary AND assignment: var &= 9 : " + (result &= 9));
+        System.out.println("Binary exclusive OR assignment: var ^= 2 : " + (result ^= 2));
+        System.out.println("Signed right shift assignment: var >>= 5 : " + (result >>= 5));
+        System.out.println("Signed left shift assignment: var <<= 10 : " + (result <<= 10));
+        System.out.println("Unsigned right shift assignment: var >>>= 3 : " + (result >>>= 3));
         
         System.out.println("\nRelational Operators:\n");       
         if (!(result>original))
@@ -373,31 +325,19 @@ static void forChar() {
         System.out.println("Increment prefix: ++var : " + ++result);
         System.out.println("Unary minus: var = -var : " + -result);
         
-        System.out.println("\nAssignement Operators:\n");  
-        result = original;
-        System.out.println("Simple assignment: var = " + result);  
-        result += 1; 
-        System.out.println("Additive assignment: var += 1 : " + result);      
-        result -= 8;
-        System.out.println("Subtraction assignment: var -= 8 : " + result);       
-        result *= 7;
-        System.out.println("Multiplication assignment: var *= 7 : " + result);       
-        result /= 4;
-        System.out.println("Division assignment: var /= 4 : " + result);  
-        result %= 6;
-        System.out.println("Remainder assignment: var %= 6 : " + result);
-        result |= 11;
-        System.out.println("Binary inclusive OR assignment: var |= 11 : " + result);
-        result &= 9;
-        System.out.println("Binary AND assignment: var &= 9 : " + result);
-        result ^= 2;
-        System.out.println("Binary exclusive OR assignment: var ^= 2 : " + result);
-        result >>= 5;
-        System.out.println("Signed right shift assignment: var >>= 5 : " + result);
-        result <<= 10;
-        System.out.println("Signed left shift assignment: var <<= 10 : " + result);
-        result >>>= 3;
-        System.out.println("Unsigned right shift assignment: var >>>= 3 : " + result);
+        System.out.println("\nAssignement Operators:\n");
+        System.out.println("Simple assignment: var = " + (result = original));
+        System.out.println("Additive assignment: var += 1 : " + (result += 1));
+        System.out.println("Subtraction assignment: var -= 8 : " + (result -= 8));
+        System.out.println("Multiplication assignment: var *= 7 : " + (result *= 7)); 
+        System.out.println("Division assignment: var /= 4 : " + (result /= 4)); 
+        System.out.println("Remainder assignment: var %= 6 : " + (result %= 6));
+        System.out.println("Binary inclusive OR assignment: var |= 11 : " + (result |= 11));
+        System.out.println("Binary AND assignment: var &= 9 : " + (result &= 9));
+        System.out.println("Binary exclusive OR assignment: var ^= 2 : " + (result ^= 2));
+        System.out.println("Signed right shift assignment: var >>= 5 : " + (result >>= 5));
+        System.out.println("Signed left shift assignment: var <<= 10 : " + (result <<= 10));
+        System.out.println("Unsigned right shift assignment: var >>>= 3 : " + (result >>>= 3));
         
         result = 'd';
         System.out.println("\nRelational Operators:\n");       
@@ -460,19 +400,13 @@ static void forFloat() {
         System.out.println("Increment prefix: ++var : " + ++result);
         System.out.println("Unary minus: var = -var : " + -result);
         
-        System.out.println("\nAssignement Operators:\n");  
-        result = original;
-        System.out.println("Simple assignment: var = " + result);  
-        result += 1; 
-        System.out.println("Additive assignment: var += 1 : " + result);      
-        result -= 8;
-        System.out.println("Subtraction assignment: var -= 8 : " + result);       
-        result *= 7;
-        System.out.println("Multiplication assignment: var *= 7 : " + result);       
-        result /= 4;
-        System.out.println("Division assignment: var /= 4 : " + result);  
-        result %= 6;
-        System.out.println("Remainder assignment: var %= 6 : " + result);
+        System.out.println("\nAssignement Operators:\n");
+        System.out.println("Simple assignment: var = " + (result = original));
+        System.out.println("Additive assignment: var += 1 : " + (result += 1));
+        System.out.println("Subtraction assignment: var -= 8 : " + (result -= 8));
+        System.out.println("Multiplication assignment: var *= 7 : " + (result *= 7)); 
+        System.out.println("Division assignment: var /= 4 : " + (result /= 4)); 
+        System.out.println("Remainder assignment: var %= 6 : " + (result %= 6));
         
         System.out.println("\nRelational Operators:\n");       
         if (!(result>original))
@@ -525,19 +459,13 @@ static void forDouble() {
         System.out.println("Increment prefix: ++var : " + ++result);
         System.out.println("Unary minus: var = -var : " + -result);
         
-        System.out.println("\nAssignement Operators:\n");  
-        result = original;
-        System.out.println("Simple assignment: var = " + result);  
-        result += 1; 
-        System.out.println("Additive assignment: var += 1 : " + result);      
-        result -= 8;
-        System.out.println("Subtraction assignment: var -= 8 : " + result);       
-        result *= 7;
-        System.out.println("Multiplication assignment: var *= 7 : " + result);       
-        result /= 4;
-        System.out.println("Division assignment: var /= 4 : " + result);  
-        result %= 6;
-        System.out.println("Remainder assignment: var %= 6 : " + result);
+        System.out.println("\nAssignement Operators:\n");
+        System.out.println("Simple assignment: var = " + (result = original));
+        System.out.println("Additive assignment: var += 1 : " + (result += 1));
+        System.out.println("Subtraction assignment: var -= 8 : " + (result -= 8));
+        System.out.println("Multiplication assignment: var *= 7 : " + (result *= 7)); 
+        System.out.println("Division assignment: var /= 4 : " + (result /= 4)); 
+        System.out.println("Remainder assignment: var %= 6 : " + (result %= 6));
         
         System.out.println("\nRelational Operators:\n");       
         if (!(result>original))
@@ -576,9 +504,8 @@ static void forBoolean() {
         
         System.out.println("\nboolean TYPE\n");
         
-        System.out.println("Assignement Operators:\n");  
-        result = original;
-        System.out.println("Simple assignment: var = " + result);  
+        System.out.println("Assignement Operators:\n");
+        System.out.println("Simple assignment: var = " + (result = original));  
         
         System.out.println("\nUnary Operators:\n");
         result = !(original);
@@ -636,31 +563,19 @@ static void forIntWrapper() {
         System.out.println("Increment prefix: ++var : " + ++result);
         System.out.println("Unary minus: var = -var : " + -result);
         
-        System.out.println("\nAssignement Operators:\n");  
-        result = original;
-        System.out.println("Simple assignment: var = " + result);  
-        result += 1; 
-        System.out.println("Additive assignment: var += 1 : " + result);      
-        result -= 8;
-        System.out.println("Subtraction assignment: var -= 8 : " + result);       
-        result *= 7;
-        System.out.println("Multiplication assignment: var *= 7 : " + result);       
-        result /= 4;
-        System.out.println("Division assignment: var /= 4 : " + result);  
-        result %= 6;
-        System.out.println("Remainder assignment: var %= 6 : " + result);
-        result |= 11;
-        System.out.println("Binary inclusive OR assignment: var |= 11 : " + result);
-        result &= 9;
-        System.out.println("Binary AND assignment: var &= 9 : " + result);
-        result ^= 2;
-        System.out.println("Binary exclusive OR assignment: var ^= 2 : " + result);
-        result >>= 5;
-        System.out.println("Signed right shift assignment: var >>= 5 : " + result);
-        result <<= 10;
-        System.out.println("Signed left shift assignment: var <<= 10 : " + result);
-        result >>>= 3;
-        System.out.println("Unsigned right shift assignment: var >>>= 3 : " + result);
+        System.out.println("\nAssignement Operators:\n");
+        System.out.println("Simple assignment: var = " + (result = original));
+        System.out.println("Additive assignment: var += 1 : " + (result += 1));
+        System.out.println("Subtraction assignment: var -= 8 : " + (result -= 8));
+        System.out.println("Multiplication assignment: var *= 7 : " + (result *= 7)); 
+        System.out.println("Division assignment: var /= 4 : " + (result /= 4)); 
+        System.out.println("Remainder assignment: var %= 6 : " + (result %= 6));
+        System.out.println("Binary inclusive OR assignment: var |= 11 : " + (result |= 11));
+        System.out.println("Binary AND assignment: var &= 9 : " + (result &= 9));
+        System.out.println("Binary exclusive OR assignment: var ^= 2 : " + (result ^= 2));
+        System.out.println("Signed right shift assignment: var >>= 5 : " + (result >>= 5));
+        System.out.println("Signed left shift assignment: var <<= 10 : " + (result <<= 10));
+        System.out.println("Unsigned right shift assignment: var >>>= 3 : " + (result >>>= 3));
         
         System.out.println("\nRelational Operators:\n");       
         if (!(result>original))
@@ -721,31 +636,19 @@ static void forLongWrapper() {
         System.out.println("Increment prefix: ++var : " + ++result);
         System.out.println("Unary minus: var = -var : " + -result);
         
-        System.out.println("\nAssignement Operators:\n");  
-        result = original;
-        System.out.println("Simple assignment: var = " + result);  
-        result += 1; 
-        System.out.println("Additive assignment: var += 1 : " + result);      
-        result -= 8;
-        System.out.println("Subtraction assignment: var -= 8 : " + result);       
-        result *= 7;
-        System.out.println("Multiplication assignment: var *= 7 : " + result);       
-        result /= 4;
-        System.out.println("Division assignment: var /= 4 : " + result);  
-        result %= 6;
-        System.out.println("Remainder assignment: var %= 6 : " + result);
-        result |= 11;
-        System.out.println("Binary inclusive OR assignment: var |= 11 : " + result);
-        result &= 9;
-        System.out.println("Binary AND assignment: var &= 9 : " + result);
-        result ^= 2;
-        System.out.println("Binary exclusive OR assignment: var ^= 2 : " + result);
-        result >>= 5;
-        System.out.println("Signed right shift assignment: var >>= 5 : " + result);
-        result <<= 10;
-        System.out.println("Signed left shift assignment: var <<= 10 : " + result);
-        result >>>= 3;
-        System.out.println("Unsigned right shift assignment: var >>>= 3 : " + result);
+        System.out.println("\nAssignement Operators:\n");
+        System.out.println("Simple assignment: var = " + (result = original));
+        System.out.println("Additive assignment: var += 1 : " + (result += 1));
+        System.out.println("Subtraction assignment: var -= 8 : " + (result -= 8));
+        System.out.println("Multiplication assignment: var *= 7 : " + (result *= 7)); 
+        System.out.println("Division assignment: var /= 4 : " + (result /= 4)); 
+        System.out.println("Remainder assignment: var %= 6 : " + (result %= 6));
+        System.out.println("Binary inclusive OR assignment: var |= 11 : " + (result |= 11));
+        System.out.println("Binary AND assignment: var &= 9 : " + (result &= 9));
+        System.out.println("Binary exclusive OR assignment: var ^= 2 : " + (result ^= 2));
+        System.out.println("Signed right shift assignment: var >>= 5 : " + (result >>= 5));
+        System.out.println("Signed left shift assignment: var <<= 10 : " + (result <<= 10));
+        System.out.println("Unsigned right shift assignment: var >>>= 3 : " + (result >>>= 3));
         
         System.out.println("\nRelational Operators:\n");       
         if (!(result>original))
@@ -806,9 +709,8 @@ static void forShortWrapper() {
         System.out.println("Increment prefix: ++var : " + ++result);
         System.out.println("Unary minus: var = -var : " + -result);
         
-        System.out.println("\nAssignement Operators:\n");  
-        result = original;
-        System.out.println("Simple assignment: var = " + result);  
+        System.out.println("\nAssignement Operators:\n");
+        System.out.println("Simple assignment: var = " + (result = original));
         
         System.out.println("\nRelational Operators:\n");       
         if (!(result>original))
@@ -869,9 +771,8 @@ static void forByteWrapper() {
         System.out.println("Increment prefix: ++var : " + ++result);
         System.out.println("Unary minus: var = -var : " + -result);
         
-        System.out.println("\nAssignement Operators:\n");  
-        result = original;
-        System.out.println("Simple assignment: var = " + result);  
+        System.out.println("\nAssignement Operators:\n");
+        System.out.println("Simple assignment: var = " + (result = original));  
         
         System.out.println("\nRelational Operators:\n");       
         if (!(result>original))
@@ -932,9 +833,8 @@ static void forCharWrapper() {
         System.out.println("Increment prefix: ++var : " + ++result);
         System.out.println("Unary minus: var = -var : " + -result);
         
-        System.out.println("\nAssignement Operators:\n");  
-        result = original;
-        System.out.println("Simple assignment: var = " + result);  
+        System.out.println("\nAssignement Operators:\n");
+        System.out.println("Simple assignment: var = " + (result = original));  
         
         result = 'd';
         System.out.println("\nRelational Operators:\n");       
@@ -996,19 +896,13 @@ static void forFloatWrapper() {
         System.out.println("Increment prefix: ++var : " + ++result);
         System.out.println("Unary minus: var = -var : " + -result);
         
-        System.out.println("\nAssignement Operators:\n");  
-        result = original;
-        System.out.println("Simple assignment: var = " + result);  
-        result += 1; 
-        System.out.println("Additive assignment: var += 1 : " + result);      
-        result -= 8;
-        System.out.println("Subtraction assignment: var -= 8 : " + result);       
-        result *= 7;
-        System.out.println("Multiplication assignment: var *= 7 : " + result);       
-        result /= 4;
-        System.out.println("Division assignment: var /= 4 : " + result);  
-        result %= 6;
-        System.out.println("Remainder assignment: var %= 6 : " + result);
+        System.out.println("\nAssignement Operators:\n");
+        System.out.println("Simple assignment: var = " + (result = original));
+        System.out.println("Additive assignment: var += 1 : " + (result += 1));
+        System.out.println("Subtraction assignment: var -= 8 : " + (result -= 8));
+        System.out.println("Multiplication assignment: var *= 7 : " + (result *= 7)); 
+        System.out.println("Division assignment: var /= 4 : " + (result /= 4)); 
+        System.out.println("Remainder assignment: var %= 6 : " + (result %= 6));
         
         System.out.println("\nRelational Operators:\n");       
         if (!(result>original))
@@ -1060,19 +954,13 @@ static void forDoubleWrapper() {
         System.out.println("Increment prefix: ++var : " + ++result);
         System.out.println("Unary minus: var = -var : " + -result);
         
-        System.out.println("\nAssignement Operators:\n");  
-        result = original;
-        System.out.println("Simple assignment: var = " + result);  
-        result += 1; 
-        System.out.println("Additive assignment: var += 1 : " + result);      
-        result -= 8;
-        System.out.println("Subtraction assignment: var -= 8 : " + result);       
-        result *= 7;
-        System.out.println("Multiplication assignment: var *= 7 : " + result);       
-        result /= 4;
-        System.out.println("Division assignment: var /= 4 : " + result);  
-        result %= 6;
-        System.out.println("Remainder assignment: var %= 6 : " + result);
+        System.out.println("\nAssignement Operators:\n");
+        System.out.println("Simple assignment: var = " + (result = original));
+        System.out.println("Additive assignment: var += 1 : " + (result += 1));
+        System.out.println("Subtraction assignment: var -= 8 : " + (result -= 8));
+        System.out.println("Multiplication assignment: var *= 7 : " + (result *= 7)); 
+        System.out.println("Division assignment: var /= 4 : " + (result /= 4)); 
+        System.out.println("Remainder assignment: var %= 6 : " + (result %= 6));
         
         System.out.println("\nRelational Operators:\n");       
         if (!(result>original))
@@ -1110,9 +998,8 @@ static void forBooleanWrapper() {
         
         System.out.println("\nboolean TYPE\n");
         
-        System.out.println("Assignement Operators:\n");  
-        result = original;
-        System.out.println("Simple assignment: var = " + result);  
+        System.out.println("Assignement Operators:\n");
+        System.out.println("Simple assignment: var = " + (result = original));  
         
         System.out.println("\nUnary Operators:\n");
         result = !(original);
@@ -1137,8 +1024,6 @@ static void forBooleanWrapper() {
         else
             System.out.println("OR: " + result + " || " + original + " : False");
         
-        
-        
         System.out.println("\nMiscellaneous operator:\n");
         System.out.println("Ternary: var = " + result + ".equals(" + original + ") ? " + result + " : " + original + " : " + ((result.equals(original) ? result : original)));
         if(original instanceof Boolean)
@@ -1160,10 +1045,8 @@ static void forString() {
         System.out.println("Arithmetic Operators\n");        
         System.out.println("Additive: \"" + result + "\" + \"" + original + "\" = \"" + (result + original) + "\"");
         
-        System.out.println("\nAssignement Operators:\n");  
-        result = original;
-        System.out.println("Simple assignment: var = \"" + result + "\"");
-        result = "This is";
+        System.out.println("\nAssignement Operators:\n");
+        System.out.println("Simple assignment: var = \"" + (result = result) + "\"");
         System.out.println("Additive assignment: \"" + result + "\" += \"" + original + "\" : " + (result += original));      
            
         result = "This is";
