@@ -23,17 +23,12 @@ static void forInt() {
         System.out.println("Remainder: " + result + " % 7 = " + (result%7));
         
         System.out.println("\nUnary Operators:\n");
-        result = +original;
-        System.out.println("Unary plus: var = +var : " + result);
-        System.out.println("Decrement postfix: var-- : " + result--);        
-        result = result--;
+        System.out.println("Unary plus: var = +var : " + +result);
+        System.out.println("Decrement postfix: var-- : " + result--);
         System.out.println("Decrement prefix: --var : " + --result);
-        result = --result;
-        System.out.println("Increment postifx: var++ : " + result++);       
-        result = result++;
+        System.out.println("Increment postifx: var++ : " + result++);
         System.out.println("Increment prefix: ++var : " + ++result);
-        result = (-(++result));
-        System.out.println("Unary minus: var = -var : " + result);
+        System.out.println("Unary minus: var = -var : " + -result);
         
         System.out.println("\nAssignement Operators:\n");  
         result = original;
@@ -66,7 +61,6 @@ static void forInt() {
             System.out.println("Greater than: " + result + " > " + original + " : False");
         else
             System.out.println("Greater than: " + result + " > " + original + " : True");
-        
         if (!(result>=original))
             System.out.println("Greater than or equal to: " + result + " >= " + original + " : False");
         else
@@ -114,17 +108,12 @@ static void forLong() {
         System.out.println("Remainder: " + result + " % 7 = " + (result%7));
         
         System.out.println("\nUnary Operators:\n");
-        result = +original;
-        System.out.println("Unary plus: var = +var : " + result);
-        System.out.println("Decrement postfix: var-- : " + result--);        
-        result = result--;
+        System.out.println("Unary plus: var = +var : " + +result);
+        System.out.println("Decrement postfix: var-- : " + result--); 
         System.out.println("Decrement prefix: --var : " + --result);
-        result = --result;
-        System.out.println("Increment postifx: var++ : " + result++);       
-        result = result++;
+        System.out.println("Increment postifx: var++ : " + result++);   
         System.out.println("Increment prefix: ++var : " + ++result);
-        result = (-(++result));
-        System.out.println("Unary minus: var = -var : " + result);
+        System.out.println("Unary minus: var = -var : " + -result);
         
         System.out.println("\nAssignement Operators:\n");  
         result = original;
@@ -205,17 +194,12 @@ static void forShort() {
         System.out.println("Remainder: " + result + " % 7 = " + (short)(result%7));
         
         System.out.println("\nUnary Operators:\n");
-        result = (short)(+original);
-        System.out.println("Unary plus: var = +var : " + result);
-        System.out.println("Decrement postfix: var-- : " + result--);        
-        result = result--;
+        System.out.println("Unary plus: var = +var : " + +result);
+        System.out.println("Decrement postfix: var-- : " + result--);
         System.out.println("Decrement prefix: --var : " + --result);
-        result = --result;
-        System.out.println("Increment postifx: var++ : " + result++);       
-        result = result++;
+        System.out.println("Increment postifx: var++ : " + result++);
         System.out.println("Increment prefix: ++var : " + ++result);
-        result = (short)(-(++result));
-        System.out.println("Unary minus: var = -var : " + result);
+        System.out.println("Unary minus: var = -var : " + -result);
         
         System.out.println("\nAssignement Operators:\n");  
         result = original;
@@ -296,17 +280,12 @@ static void forByte() {
         System.out.println("Remainder: " + result + " % 7 = " + (byte)(result%7));
         
         System.out.println("\nUnary Operators:\n");
-        result = (byte)(+original);
-        System.out.println("Unary plus: var = +var : " + result);
-        System.out.println("Decrement postfix: var-- : " + result--);        
-        result = result--;
+        System.out.println("Unary plus: var = +var : " + +result);
+        System.out.println("Decrement postfix: var-- : " + result--);
         System.out.println("Decrement prefix: --var : " + --result);
-        result = --result;
-        System.out.println("Increment postifx: var++ : " + result++);       
-        result = result++;
+        System.out.println("Increment postifx: var++ : " + result++);
         System.out.println("Increment prefix: ++var : " + ++result);
-        result = (byte)(-(++result));
-        System.out.println("Unary minus: var = -var : " + result);
+        System.out.println("Unary minus: var = -var : " + -result);
         
         System.out.println("\nAssignement Operators:\n");  
         result = original;
@@ -387,17 +366,12 @@ static void forChar() {
         System.out.println("Remainder: " + result + " % 7 = " + (char)(result%7));
         
         System.out.println("\nUnary Operators:\n");
-        result = (char)(+original);
-        System.out.println("Unary plus: var = +var : " + result);
-        System.out.println("Decrement postfix: var-- : " + result--);        
-        result = result--;
+        System.out.println("Unary plus: var = +var : " + +result);
+        System.out.println("Decrement postfix: var-- : " + result--);
         System.out.println("Decrement prefix: --var : " + --result);
-        result = --result;
-        System.out.println("Increment postifx: var++ : " + result++);       
-        result = result++;
+        System.out.println("Increment postifx: var++ : " + result++);
         System.out.println("Increment prefix: ++var : " + ++result);
-        result = (char)(-(++result));
-        System.out.println("Unary minus: var = -var : " + result);
+        System.out.println("Unary minus: var = -var : " + -result);
         
         System.out.println("\nAssignement Operators:\n");  
         result = original;
@@ -479,17 +453,12 @@ static void forFloat() {
         System.out.println("Remainder: " + result + " % 7 = " + (result%7));
         
         System.out.println("\nUnary Operators:\n");
-        result = +original;
-        System.out.println("Unary plus: var = +var : " + result);
-        System.out.println("Decrement postfix: var-- : " + result--);        
-        result = result--;
+        System.out.println("Unary plus: var = +var : " + +result);
+        System.out.println("Decrement postfix: var-- : " + result--);
         System.out.println("Decrement prefix: --var : " + --result);
-        result = --result;
-        System.out.println("Increment postifx: var++ : " + result++);       
-        result = result++;
+        System.out.println("Increment postifx: var++ : " + result++);
         System.out.println("Increment prefix: ++var : " + ++result);
-        result = (-(++result));
-        System.out.println("Unary minus: var = -var : " + result);
+        System.out.println("Unary minus: var = -var : " + -result);
         
         System.out.println("\nAssignement Operators:\n");  
         result = original;
@@ -549,17 +518,12 @@ static void forDouble() {
         System.out.println("Remainder: " + result + " % 7 = " + (result%7));
         
         System.out.println("\nUnary Operators:\n");
-        result = +original;
-        System.out.println("Unary plus: var = +var : " + result);
-        System.out.println("Decrement postfix: var-- : " + result--);        
-        result = result--;
+        System.out.println("Unary plus: var = +var : " + +result);
+        System.out.println("Decrement postfix: var-- : " + result--);
         System.out.println("Decrement prefix: --var : " + --result);
-        result = --result;
-        System.out.println("Increment postifx: var++ : " + result++);       
-        result = result++;
+        System.out.println("Increment postifx: var++ : " + result++);
         System.out.println("Increment prefix: ++var : " + ++result);
-        result = (-(++result));
-        System.out.println("Unary minus: var = -var : " + result);
+        System.out.println("Unary minus: var = -var : " + -result);
         
         System.out.println("\nAssignement Operators:\n");  
         result = original;
@@ -665,17 +629,12 @@ static void forIntWrapper() {
         System.out.println("Remainder: " + result + " % 7 = " + (result%7));
         
         System.out.println("\nUnary Operators:\n");
-        result = +original;
-        System.out.println("Unary plus: var = +var : " + result);
-        System.out.println("Decrement postfix: var-- : " + result--);        
-        result = result--;
+        System.out.println("Unary plus: var = +var : " + +result);
+        System.out.println("Decrement postfix: var-- : " + result--);
         System.out.println("Decrement prefix: --var : " + --result);
-        result = --result;
-        System.out.println("Increment postifx: var++ : " + result++);       
-        result = result++;
+        System.out.println("Increment postifx: var++ : " + result++);
         System.out.println("Increment prefix: ++var : " + ++result);
-        result = (-(++result));
-        System.out.println("Unary minus: var = -var : " + result);
+        System.out.println("Unary minus: var = -var : " + -result);
         
         System.out.println("\nAssignement Operators:\n");  
         result = original;
@@ -755,17 +714,12 @@ static void forLongWrapper() {
         System.out.println("Remainder: " + result + " % 7 = " + (result%7));
         
         System.out.println("\nUnary Operators:\n");
-        result = +original;
-        System.out.println("Unary plus: var = +var : " + result);
-        System.out.println("Decrement postfix: var-- : " + result--);        
-        result = result--;
+        System.out.println("Unary plus: var = +var : " + +result);
+        System.out.println("Decrement postfix: var-- : " + result--);
         System.out.println("Decrement prefix: --var : " + --result);
-        result = --result;
-        System.out.println("Increment postifx: var++ : " + result++);       
-        result = result++;
+        System.out.println("Increment postifx: var++ : " + result++);
         System.out.println("Increment prefix: ++var : " + ++result);
-        result = (-(++result));
-        System.out.println("Unary minus: var = -var : " + result);
+        System.out.println("Unary minus: var = -var : " + -result);
         
         System.out.println("\nAssignement Operators:\n");  
         result = original;
@@ -845,17 +799,12 @@ static void forShortWrapper() {
         System.out.println("Remainder: " + result + " % 7 = " + (short)(result%7));
         
         System.out.println("\nUnary Operators:\n");
-        result = (short)(+original);
-        System.out.println("Unary plus: var = +var : " + result);
-        System.out.println("Decrement postfix: var-- : " + result--);        
-        result = result--;
+        System.out.println("Unary plus: var = +var : " + +result);
+        System.out.println("Decrement postfix: var-- : " + result--);
         System.out.println("Decrement prefix: --var : " + --result);
-        result = --result;
-        System.out.println("Increment postifx: var++ : " + result++);       
-        result = result++;
+        System.out.println("Increment postifx: var++ : " + result++);
         System.out.println("Increment prefix: ++var : " + ++result);
-        result = (short)(-(++result));
-        System.out.println("Unary minus: var = -var : " + result);
+        System.out.println("Unary minus: var = -var : " + -result);
         
         System.out.println("\nAssignement Operators:\n");  
         result = original;
@@ -913,17 +862,12 @@ static void forByteWrapper() {
         System.out.println("Remainder: " + result + " % 7 = " + (byte)(result%7));
         
         System.out.println("\nUnary Operators:\n");
-        result = (byte)(+original);
-        System.out.println("Unary plus: var = +var : " + result);
-        System.out.println("Decrement postfix: var-- : " + result--);        
-        result = result--;
+        System.out.println("Unary plus: var = +var : " + +result);
+        System.out.println("Decrement postfix: var-- : " + result--);
         System.out.println("Decrement prefix: --var : " + --result);
-        result = --result;
-        System.out.println("Increment postifx: var++ : " + result++);       
-        result = result++;
+        System.out.println("Increment postifx: var++ : " + result++);
         System.out.println("Increment prefix: ++var : " + ++result);
-        result = (byte)(-(++result));
-        System.out.println("Unary minus: var = -var : " + result);
+        System.out.println("Unary minus: var = -var : " + -result);
         
         System.out.println("\nAssignement Operators:\n");  
         result = original;
@@ -981,17 +925,12 @@ static void forCharWrapper() {
         System.out.println("Remainder: " + result + " % 7 = " + (char)(result%7));
         
         System.out.println("\nUnary Operators:\n");
-        result = (char)(+original);
-        System.out.println("Unary plus: var = +var : " + result);
-        System.out.println("Decrement postfix: var-- : " + result--);        
-        result = result--;
+        System.out.println("Unary plus: var = +var : " + +result);
+        System.out.println("Decrement postfix: var-- : " + result--);
         System.out.println("Decrement prefix: --var : " + --result);
-        result = --result;
-        System.out.println("Increment postifx: var++ : " + result++);       
-        result = result++;
+        System.out.println("Increment postifx: var++ : " + result++);
         System.out.println("Increment prefix: ++var : " + ++result);
-        result = (char)(-(++result));
-        System.out.println("Unary minus: var = -var : " + result);
+        System.out.println("Unary minus: var = -var : " + -result);
         
         System.out.println("\nAssignement Operators:\n");  
         result = original;
@@ -1050,17 +989,12 @@ static void forFloatWrapper() {
         System.out.println("Remainder: " + result + " % 7 = " + (result%7));
         
         System.out.println("\nUnary Operators:\n");
-        result = +original;
-        System.out.println("Unary plus: var = +var : " + result);
-        System.out.println("Decrement postfix: var-- : " + result--);        
-        result = result--;
+        System.out.println("Unary plus: var = +var : " + +result);
+        System.out.println("Decrement postfix: var-- : " + result--);
         System.out.println("Decrement prefix: --var : " + --result);
-        result = --result;
-        System.out.println("Increment postifx: var++ : " + result++);       
-        result = result++;
+        System.out.println("Increment postifx: var++ : " + result++);
         System.out.println("Increment prefix: ++var : " + ++result);
-        result = (-(++result));
-        System.out.println("Unary minus: var = -var : " + result);
+        System.out.println("Unary minus: var = -var : " + -result);
         
         System.out.println("\nAssignement Operators:\n");  
         result = original;
@@ -1119,17 +1053,12 @@ static void forDoubleWrapper() {
         System.out.println("Remainder: " + result + " % 7 = " + (result%7));
         
         System.out.println("\nUnary Operators:\n");
-        result = +original;
-        System.out.println("Unary plus: var = +var : " + result);
-        System.out.println("Decrement postfix: var-- : " + result--);        
-        result = result--;
+        System.out.println("Unary plus: var = +var : " + +result);
+        System.out.println("Decrement postfix: var-- : " + result--);
         System.out.println("Decrement prefix: --var : " + --result);
-        result = --result;
-        System.out.println("Increment postifx: var++ : " + result++);       
-        result = result++;
+        System.out.println("Increment postifx: var++ : " + result++);
         System.out.println("Increment prefix: ++var : " + ++result);
-        result = (-(++result));
-        System.out.println("Unary minus: var = -var : " + result);
+        System.out.println("Unary minus: var = -var : " + -result);
         
         System.out.println("\nAssignement Operators:\n");  
         result = original;
