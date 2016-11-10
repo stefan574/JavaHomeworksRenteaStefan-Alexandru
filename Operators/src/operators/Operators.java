@@ -1133,8 +1133,8 @@ static void menu() {
             System.exit(0);
         }
         default : {
+            System.out.println("Try Again!");
             menu();
-            break;
         }
     }
     menu();
