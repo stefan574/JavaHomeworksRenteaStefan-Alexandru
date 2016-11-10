@@ -4,6 +4,7 @@
  * plus the String class
  */
 package operators;
+import java.util.Scanner;
 
 /**
  * @author Stefan-Alexandru Rentea
@@ -1049,26 +1050,99 @@ static void forString() {
         else
             System.out.println("Istanceof: var instanceof String : False\n");
 }
+static void menu() {
+    System.out.println("\n1. int \t\t2. long \t3. short \t4. byte \n"
+            + "5. char \t6. float \t7. double \t8. boolean \n"
+            + "9. Integer \t10. Long \t11. Short \t12. Byte \n"
+            + "13. Character \t14. Float \t15. Double \t16. Boolean \n"
+            + "17. String \t18. Exit \n\n");
+    
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("Choice: ");
+    String string = scanner.nextLine();
+    switch(string) {
+        case "1" : {
+            AllOperators.forInt();  
+            break;
+        }
+        case "2" : {
+            AllOperators.forLong();
+            break;
+        }
+        case "3" : {
+            AllOperators.forShort();
+            break;
+        }
+        case "4" : {
+            AllOperators.forByte();
+            break;
+        }
+        case "5" : {
+            AllOperators.forChar();
+            break;
+        }
+        case "6" : {
+            AllOperators.forBoolean();
+            break;
+        }
+        case "7" : {
+            AllOperators.forFloat();
+            break;
+        }
+        case "8" : {
+            AllOperators.forDouble();
+            break;
+        }
+        case "9" : {
+            AllOperators.forIntWrapper();
+            break;
+        }
+        case "10" : {
+            AllOperators.forLongWrapper();
+            break;
+        }
+        case "11" : {
+            AllOperators.forByteWrapper();
+            break;
+        }
+        case "12" : {
+            AllOperators.forCharWrapper();
+            break;
+        }
+        case "13" : {
+            AllOperators.forShortWrapper();
+            break;
+        }
+        case "14" : {
+            AllOperators.forFloatWrapper();
+            break;
+        }
+        case "15" : {
+            AllOperators.forDoubleWrapper();
+            break;
+        }
+        case "16" : {
+            AllOperators.forBooleanWrapper();
+            break;
+        }
+        case "17" : {
+            AllOperators.forString();
+            break;
+        }
+        case "18" : {
+            System.exit(0);
+        }
+        default : {
+            menu();
+            break;
+        }
+    }
+    menu();
+}
 }
 
 public class Operators {
     public static void main(String[] args) {
-    //AllOperators.forInt();  
-    //AllOperators.forLong();
-    //AllOperators.forShort();
-    //AllOperators.forByte();
-    //AllOperators.forChar();
-    //AllOperators.forBoolean();
-    //AllOperators.forFloat();
-    //AllOperators.forDouble();
-    //AllOperators.forIntWrapper();
-    //AllOperators.forLongWrapper();
-    //AllOperators.forByteWrapper();
-    //AllOperators.forCharWrapper();
-    //AllOperators.forShortWrapper();
-    //AllOperators.forFloatWrapper();
-    //AllOperators.forDoubleWrapper();
-    //AllOperators.forBooleanWrapper();
-    //AllOperators.forString();
+        AllOperators.menu();
     }
 }
