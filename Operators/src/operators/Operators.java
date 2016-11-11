@@ -10,6 +10,142 @@ import java.util.Scanner;
  * @author Stefan-Alexandru Rentea
  */
 
+class Switch {
+    static String replaceDuplicates(String string) {
+        String checkExists;
+        String noDuplicatesString = " ";
+        String[] strings = string.split(" ");
+        
+        for (String iterator : strings) {
+            checkExists = " " + iterator + " ";
+            if (!noDuplicatesString.contains(checkExists))
+                noDuplicatesString = noDuplicatesString + iterator + " ";
+        }
+        noDuplicatesString = noDuplicatesString.trim();
+        
+        return noDuplicatesString;
+    }
+    static void doSwitch(String string){
+        switch(string) {
+        case "1" : {
+            AllOperators.forInt();  
+            break;
+        }
+        case "2" : {
+            AllOperators.forLong();
+            break;
+        }
+        case "3" : {
+            AllOperators.forShort();
+            break;
+        }
+        case "4" : {
+            AllOperators.forByte();
+            break;
+        }
+        case "5" : {
+            AllOperators.forChar();
+            break;
+        }
+        case "6" : {
+            AllOperators.forBoolean();
+            break;
+        }
+        case "7" : {
+            AllOperators.forFloat();
+            break;
+        }
+        case "8" : {
+            AllOperators.forDouble();
+            break;
+        }
+        case "9" : {
+            AllOperators.forIntWrapper();
+            break;
+        }
+        case "10" : {
+            AllOperators.forLongWrapper();
+            break;
+        }
+        case "11" : {
+            AllOperators.forByteWrapper();
+            break;
+        }
+        case "12" : {
+            AllOperators.forCharWrapper();
+            break;
+        }
+        case "13" : {
+            AllOperators.forShortWrapper();
+            break;
+        }
+        case "14" : {
+            AllOperators.forFloatWrapper();
+            break;
+        }
+        case "15" : {
+            AllOperators.forDoubleWrapper();
+            break;
+        }
+        case "16" : {
+            AllOperators.forBooleanWrapper();
+            break;
+        }
+        case "17" : {
+            AllOperators.forString();
+            break;
+        }
+        case "18" : {
+            System.exit(0);
+        }
+        default : {
+            System.out.println("\nTry Again!\n");
+        }
+    }
+    }
+    static void doParse(String string) {
+        int checkExit = 0;
+        String options = " 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 ";
+        String checkExists, checkNotExists = null;
+        
+        string = string.replace(',', ' ');
+        string = string.trim();
+        while(string.contains("  "))
+            string = string.replaceAll("  ", " ");
+        String[] strings = replaceDuplicates(string).split(" ");
+        //String[] strings = string.split(" ");
+        
+        for (String iterator : strings)
+        {
+            if (iterator.contains("18")) {
+                checkExit = 1;
+                continue;
+            }
+            checkExists = " " + iterator + " ";
+            if (options.contains(checkExists))
+                doSwitch(iterator);
+            else
+                checkNotExists = checkNotExists + iterator + ", ";
+        }
+        
+        if (checkNotExists != null){
+            checkNotExists = checkNotExists.replaceFirst("null", "");
+            checkNotExists = checkNotExists.trim();
+            StringBuffer buffer = new StringBuffer(checkNotExists);
+            checkNotExists = buffer.reverse().toString().replaceFirst(",",".");
+            checkNotExists = new StringBuffer(checkNotExists).reverse().toString();
+            if (checkNotExists.contains(","))
+                System.out.println("\nThe following requests do not exist: " + checkNotExists);
+            else
+                System.out.println("\nThe following request does not exist: " + checkNotExists);        
+        }
+        
+        if (checkExit == 1) {
+            System.exit(0);
+        }
+    }
+}
+
 class AllOperators {
 static void forInt() {
     int result, original;
@@ -1055,94 +1191,18 @@ static void menu() {
             + "5. char \t6. float \t7. double \t8. boolean \n"
             + "9. Integer \t10. Long \t11. Short \t12. Byte \n"
             + "13. Character \t14. Float \t15. Double \t16. Boolean \n"
-            + "17. String \t18. Exit \n\n");
+            + "17. String \t18. Exit \n");
     
     Scanner scanner = new Scanner(System.in);
     System.out.println("Choice: ");
     String string = scanner.nextLine();
-    switch(string) {
-        case "1" : {
-            AllOperators.forInt();  
-            break;
-        }
-        case "2" : {
-            AllOperators.forLong();
-            break;
-        }
-        case "3" : {
-            AllOperators.forShort();
-            break;
-        }
-        case "4" : {
-            AllOperators.forByte();
-            break;
-        }
-        case "5" : {
-            AllOperators.forChar();
-            break;
-        }
-        case "6" : {
-            AllOperators.forBoolean();
-            break;
-        }
-        case "7" : {
-            AllOperators.forFloat();
-            break;
-        }
-        case "8" : {
-            AllOperators.forDouble();
-            break;
-        }
-        case "9" : {
-            AllOperators.forIntWrapper();
-            break;
-        }
-        case "10" : {
-            AllOperators.forLongWrapper();
-            break;
-        }
-        case "11" : {
-            AllOperators.forByteWrapper();
-            break;
-        }
-        case "12" : {
-            AllOperators.forCharWrapper();
-            break;
-        }
-        case "13" : {
-            AllOperators.forShortWrapper();
-            break;
-        }
-        case "14" : {
-            AllOperators.forFloatWrapper();
-            break;
-        }
-        case "15" : {
-            AllOperators.forDoubleWrapper();
-            break;
-        }
-        case "16" : {
-            AllOperators.forBooleanWrapper();
-            break;
-        }
-        case "17" : {
-            AllOperators.forString();
-            break;
-        }
-        case "18" : {
-            System.exit(0);
-        }
-        default : {
-            System.out.println("Try Again!");
-            menu();
-        }
-    }
+    Switch.doParse(string);
     menu();
 }
 }
 
 public class Operators {
     public static void main(String[] args) {
-        AllOperators.menu();
+        AllOperators.menu();   
     }
 }
