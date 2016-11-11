@@ -21,6 +21,7 @@ class Switch {
             if (!noDuplicatesString.contains(checkExists))
                 noDuplicatesString = noDuplicatesString + iterator + " ";
         }
+        
         noDuplicatesString = noDuplicatesString.trim();
         
         return noDuplicatesString;
@@ -98,9 +99,6 @@ class Switch {
         case "18" : {
             System.exit(0);
         }
-        default : {
-            System.out.println("\nTry Again!\n");
-        }
     }
     }
     static void doParse(String string) {
@@ -112,15 +110,15 @@ class Switch {
         string = string.trim();
         while(string.contains("  "))
             string = string.replaceAll("  ", " ");
-        String[] strings = replaceDuplicates(string).split(" ");
-        //String[] strings = string.split(" ");
         
-        for (String iterator : strings)
-        {
+        String[] strings = replaceDuplicates(string).split(" ");
+        
+        for (String iterator : strings) {
             if (iterator.contains("18")) {
                 checkExit = 1;
                 continue;
             }
+            
             checkExists = " " + iterator + " ";
             if (options.contains(checkExists))
                 doSwitch(iterator);
@@ -131,7 +129,7 @@ class Switch {
         if (checkNotExists != null){
             checkNotExists = checkNotExists.replaceFirst("null", "");
             checkNotExists = checkNotExists.trim();
-            StringBuffer buffer = new StringBuffer(checkNotExists);
+            StringBuilder buffer = new StringBuilder(checkNotExists);
             checkNotExists = buffer.reverse().toString().replaceFirst(",",".");
             checkNotExists = new StringBuffer(checkNotExists).reverse().toString();
             if (checkNotExists.contains(","))
@@ -140,9 +138,8 @@ class Switch {
                 System.out.println("\nThe following request does not exist: " + checkNotExists);        
         }
         
-        if (checkExit == 1) {
+        if (checkExit == 1)
             System.exit(0);
-        }
     }
 }
 
@@ -1196,7 +1193,9 @@ static void menu() {
     Scanner scanner = new Scanner(System.in);
     System.out.println("Choice: ");
     String string = scanner.nextLine();
+    
     Switch.doParse(string);
+    
     menu();
 }
 }
