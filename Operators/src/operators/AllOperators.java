@@ -11,10 +11,6 @@ import java.util.Scanner;
  * @author Stefan-Alexandru Rentea
  */
 
-/**
- *
- * @author Steven
- */
 class AllOperators {
 static void forInt() {
     int result, original;
@@ -1060,10 +1056,10 @@ static void menu() {
             + "5. char \t6. float \t7. double \t8. boolean \n"
             + "9. Integer \t10. Long \t11. Short \t12. Byte \n"
             + "13. Character \t14. Float \t15. Double \t16. Boolean \n"
-            + "17. String \t18. Exit \n");
+            + "17. String \t18. Exit \t19. All\n");
     
     Scanner scanner = new Scanner(System.in);
-    System.out.println("Choice: ");
+    System.out.print("Choice: ");
     String string = scanner.nextLine();
     
     Switch.doParse(string);

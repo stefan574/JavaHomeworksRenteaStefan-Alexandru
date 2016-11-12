@@ -87,13 +87,32 @@ public class Switch {
         case "18" : {
             System.exit(0);
         }
+        case "19" : {
+            AllOperators.forInt();
+            AllOperators.forLong();
+            AllOperators.forShort();
+            AllOperators.forByte();
+            AllOperators.forChar();
+            AllOperators.forBoolean();
+            AllOperators.forFloat();
+            AllOperators.forDouble();
+            AllOperators.forIntWrapper();
+            AllOperators.forLongWrapper();
+            AllOperators.forShortWrapper();
+            AllOperators.forByteWrapper();
+            AllOperators.forCharWrapper();
+            AllOperators.forBooleanWrapper();
+            AllOperators.forFloatWrapper();
+            AllOperators.forDoubleWrapper();
+            AllOperators.forString();
+        }
     }
     }
     static void doParse(String string) {
         int checkExit = 0;
         String options = " 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 ";
         String checkExists, checkNotExists = null;
-        List<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<>();
         
         string = string.replace(',', ' ');
         string = string.trim();
