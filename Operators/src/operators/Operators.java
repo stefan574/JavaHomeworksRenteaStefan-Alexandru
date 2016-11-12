@@ -4,6 +4,8 @@
  * plus the String class
  */
 package operators;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -11,21 +13,6 @@ import java.util.Scanner;
  */
 
 class Switch {
-    static String replaceDuplicates(String string) {
-        String checkExists;
-        String noDuplicatesString = " ";
-        String[] strings = string.split(" ");
-        
-        for (String iterator : strings) {
-            checkExists = " " + iterator + " ";
-            if (!noDuplicatesString.contains(checkExists))
-                noDuplicatesString = noDuplicatesString + iterator + " ";
-        }
-        
-        noDuplicatesString = noDuplicatesString.trim();
-        
-        return noDuplicatesString;
-    }
     static void doSwitch(String string){
         switch(string) {
         case "1" : {
@@ -105,15 +92,20 @@ class Switch {
         int checkExit = 0;
         String options = " 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 ";
         String checkExists, checkNotExists = null;
+        List<String> list = new ArrayList<String>();
         
         string = string.replace(',', ' ');
         string = string.trim();
         while(string.contains("  "))
             string = string.replaceAll("  ", " ");
         
-        String[] strings = replaceDuplicates(string).split(" ");
+        String[] strings = string.split(" ");
+         
+        for (String iterator : strings)
+            if (!list.contains(iterator))
+                list.add(iterator);
         
-        for (String iterator : strings) {
+        for (String iterator : list) {
             if (iterator.contains("18")) {
                 checkExit = 1;
                 continue;
