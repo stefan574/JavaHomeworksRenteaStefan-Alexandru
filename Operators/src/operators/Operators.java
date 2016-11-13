@@ -1,8 +1,14 @@
 /*
- * Using all operators on all primitives
- * and wrapper classes associated with them
- * plus the String class
+ * The project implements operations on primitives
+ * and their associated wrapper classes and also, the
+ * String class.
+ * The program starts by showing you the menu, and
+ * then it lets you pick an option by tapping it on
+ * your keyboard.
+ * You can pick any choice you want from 1 to 19, 
+ * and you can even pick more than one option.
  */
+
 package operators;
 
 /**
@@ -11,6 +17,6 @@ package operators;
 
 public class Operators {
     public static void main(String[] args) {
-        AllOperators.menu(); 
+        Menu.menu();
     }
 }

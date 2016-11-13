@@ -1,11 +1,15 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Using all operators on all primitives
+ * and wrapper classes associated with them
+ * plus the String class, each with their
+ * own separate method.
+ * One method can differ from another
+ * because not all operators work on
+ * all primitives or wrapper classes.
+ * The last method is the menu of the project.
  */
-package operators;
 
-import java.util.Scanner;
+package operators;
 
 /**
  * @author Stefan-Alexandru Rentea
@@ -495,8 +499,7 @@ static void forDouble() {
         System.out.println("Istanceof: Doesn't work for primitive types!");
 }
 static void forBoolean() {
-    boolean result, original;
-        result = original = true;
+    boolean result, original = true;
         
         System.out.println("\nboolean TYPE\n");
         
@@ -531,7 +534,7 @@ static void forBoolean() {
             System.out.println("OR: " + result + " || " + original + " : False");
         
         System.out.println("Miscellaneous operator:\n");
-        System.out.println("Ternary: var = " + "( " + result + " != " + original + " ) ? false : true : " + ((result!=original) ? false : true));
+        System.out.println("Ternary: var = " + "( " + result + " != " + original + " ) ? false : true : " + ((result!=original) ? result : original));
         System.out.println("Istanceof: Doesn't work for primitive types!\n");
  
         System.out.println("Binary Operators:\n");
@@ -596,7 +599,8 @@ static void forIntWrapper() {
             System.out.println("Equals: " + result + ".equals(" + original + ")" + " : False");
         
         System.out.println("\nMiscellaneous operator:\n");
-        System.out.println("Ternary: var = " + "( " + result + " > " + original + " ) ? " + result + " : " + original + " : " + ((result>original) ? result : original));
+        System.out.println("Ternary: var = " + "( " + result + " > " + original + " ) ? " + result 
+                + " : " + original + " : " + ((result>original) ? result : original));
         if(original instanceof Integer)
             System.out.println("Istanceof: var instanceof Integer : True\n");
         else
@@ -668,7 +672,8 @@ static void forLongWrapper() {
             System.out.println("Equals: " + result + ".equals(" + original + ")" + " : False");
         
         System.out.println("\nMiscellaneous operator:\n");
-        System.out.println("Ternary: var = " + "( " + result + " > " + original + " ) ? " + result + " : " + original + " : " + ((result>original) ? result : original));
+        System.out.println("Ternary: var = " + "( " + result + " > " + original + " ) ? " + result 
+                + " : " + original + " : " + ((result>original) ? result : original));
         if(original instanceof Long)
             System.out.println("Istanceof: var instanceof Long : True\n");
         else
@@ -729,7 +734,8 @@ static void forShortWrapper() {
             System.out.println("Equals: " + result + ".equals(" + original + ")" + " : False");
         
         System.out.println("\nMiscellaneous operator:\n");
-        System.out.println("Ternary: var = " + "( " + result + " > " + original + " ) ? " + result + " : " + original + " : " + ((result>original) ? result : original));
+        System.out.println("Ternary: var = " + "( " + result + " > " + original + " ) ? " 
+                + result + " : " + original + " : " + ((result>original) ? result : original));
         if(original instanceof Short)
             System.out.println("Istanceof: var instanceof Short : True\n");
         else
@@ -790,7 +796,8 @@ static void forByteWrapper() {
             System.out.println("Equals: " + result + ".equals(" + original + ")" + " : False");
         
         System.out.println("\nMiscellaneous operator:\n");
-        System.out.println("Ternary: var = " + "( " + result + " > " + original + " ) ? " + result + " : " + original + " : " + ((result>original) ? result : original));
+        System.out.println("Ternary: var = " + "( " + result + " > " + original + " ) ? " 
+                + result + " : " + original + " : " + ((result>original) ? result : original));
         if(original instanceof Byte)
             System.out.println("Istanceof: var instanceof Byte : True\n");
         else
@@ -852,7 +859,8 @@ static void forCharWrapper() {
             System.out.println("Equals: " + result + ".equals(" + original + ")" + " : False");
         
         System.out.println("\nMiscellaneous operator:\n");
-        System.out.println("Ternary: var = " + "( " + result + " > " + original + " ) ? " + result + " : " + original + " : " + ((result>original) ? result : original));
+        System.out.println("Ternary: var = " + "( " + result + " > " + original + " ) ? " 
+                + result + " : " + original + " : " + ((result>original) ? result : original));
         if(original instanceof Character)
             System.out.println("Istanceof: var instanceof Character : True\n");
         else
@@ -918,7 +926,8 @@ static void forFloatWrapper() {
             System.out.println("Equals: " + result + ".equals(" + original + ")" + " : False");
         
         System.out.println("\nMiscellaneous operator:\n");
-        System.out.println("Ternary: var = " + "( " + result + " > " + original + " ) ? " + result + " : " + original + " : " + ((result>original) ? result : original));
+        System.out.println("Ternary: var = " + "( " + result + " > " + original + " ) ? " 
+                + result + " : " + original + " : " + ((result>original) ? result : original));
         if(original instanceof Float)
             System.out.println("Istanceof: var instanceof Float : True");
         else
@@ -975,15 +984,15 @@ static void forDoubleWrapper() {
             System.out.println("Equals: " + result + ".equals(" + original + ")" + " : False");
         
         System.out.println("\nMiscellaneous operator:\n");
-        System.out.println("Ternary: var = " + "( " + result + " > " + original + " ) ? " + result + " : " + original + " : " + ((result>original) ? result : original));
+        System.out.println("Ternary: var = " + "( " + result + " > " + original + " ) ? " 
+                + result + " : " + original + " : " + ((result>original) ? result : original));
         if(original instanceof Double)
             System.out.println("Istanceof: var instanceof Double : True");
         else
             System.out.println("Istanceof: var instanceof Double : False");
 }
 static void forBooleanWrapper() {
-    Boolean result, original;
-        result = original = true;
+    Boolean result, original = true;
         
         System.out.println("\nboolean TYPE\n");
         
@@ -1014,7 +1023,8 @@ static void forBooleanWrapper() {
             System.out.println("OR: " + result + " || " + original + " : False");
         
         System.out.println("\nMiscellaneous operator:\n");
-        System.out.println("Ternary: var = " + result + ".equals(" + original + ") ? " + result + " : " + original + " : " + ((result.equals(original) ? result : original)));
+        System.out.println("Ternary: var = " + result + ".equals(" + original + ") ? " 
+                + result + " : " + original + " : " + ((result.equals(original) ? result : original)));
         if(original instanceof Boolean)
             System.out.println("Istanceof: var instanceof Boolean : True\n");
         else
@@ -1045,25 +1055,11 @@ static void forString() {
             System.out.println("Equals: \"" + result + "\".equals(\"" + original + "\")" + " : False");
         
         System.out.println("\nMiscellaneous operator:\n");
-        System.out.println("Ternary: var = \"" + result + "\".equals(\"" + original + "\") ? \"" + result + "\" : \"" + original + "\" : \"" + ((result.equals(original) ? result : original)) + "\"");
+        System.out.println("Ternary: var = \"" + result + "\".equals(\"" + original + "\") ? \"" 
+                + result + "\" : \"" + original + "\" : \"" + ((result.equals(original) ? result : original)) + "\"");
         if(original instanceof String)
             System.out.println("Istanceof: var instanceof String : True\n");
         else
             System.out.println("Istanceof: var instanceof String : False\n");
-}
-static void menu() {
-    System.out.println("\n1. int \t\t2. long \t3. short \t4. byte \n"
-            + "5. char \t6. float \t7. double \t8. boolean \n"
-            + "9. Integer \t10. Long \t11. Short \t12. Byte \n"
-            + "13. Character \t14. Float \t15. Double \t16. Boolean \n"
-            + "17. String \t18. Exit \t19. All\n");
-    
-    Scanner scanner = new Scanner(System.in);
-    System.out.print("Choice: ");
-    String string = scanner.nextLine();
-    
-    Switch.doParse(string);
-    
-    menu();
 }
 }
