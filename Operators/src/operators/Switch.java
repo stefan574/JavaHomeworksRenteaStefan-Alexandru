@@ -6,6 +6,7 @@
  * be given to the Switch class. It makes sure that there
  * are no duplicates in the output, no bad requests, no mistakes.
  */
+
 package operators;
 
 import java.util.ArrayList;
