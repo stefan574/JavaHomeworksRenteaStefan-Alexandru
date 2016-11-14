@@ -1,6 +1,6 @@
 /*
  * The Menu class - implemens the project menu
- * and takes arguments from input
+ * and reads the arguments from the console
  */
 
 package operators;
@@ -23,7 +23,7 @@ public class Menu {
         System.out.print("Choice: ");
         String string = scanner.nextLine();
 
-        Switch.doParse(string);
+        Parser.doParse(string);
 
         menu();
     }
