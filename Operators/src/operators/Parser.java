@@ -96,9 +96,13 @@ public class Parser {
                 //this line to the console
                 System.out.println("\nThe following requests do not exist: " + checkNotExists);
             else
-                //if there is just one illegal option selected, print this
-                //line to the console
-                System.out.println("\nThe following request does not exist: " + checkNotExists);        
+                //if input is empty, print this line to the console
+                if (checkNotExists.equals("."))
+                    System.out.println("\nPlease insert input.");
+                else
+                    //if there is just one illegal option selected, print this
+                    //line to the console
+                    System.out.println("\nThe following request does not exist: " + checkNotExists);        
         }
         
         //if option "18. Exit" is select, the program will terminate
