@@ -52,6 +52,30 @@ public class PlacementOfElements {
                         + (new SwitchPrintOperator().printOperator(list.get(i)))
                         + " before a '.' char(period character).\n";
             }
+        
+        //trebuie sa modific in menu sa puna mereu zero in input!
+        
+        //illegal placement of on operator next to another operator
+        System.out.println(list + "\n");
+        for (int i = 0; i < list.size(); i++) 
+            if (list.get(i).equals("+")||list.get(i).equals("-")
+                    ||list.get(i).equals("*")||list.get(i).equals("/")
+                    ||list.get(i).equals("%"))
+                if ((i + 1 < list.size())&&(list.get(i + 1).equals("+")
+                        ||list.get(i + 1).equals("-")
+                        ||list.get(i + 1).equals("*")
+                        ||list.get(i + 1).equals("/")
+                        ||list.get(i + 1).equals("%")))
+                error = error + (i + 1) + ": Illegal placement of operator "
+                        + list.get(i) + " next to another operator.\n";
+                else 
+                    if ((i - 1 > 0)&&(list.get(i - 1).equals("+")
+                            ||list.get(i - 1).equals("-")
+                            ||list.get(i - 1).equals("*")
+                            ||list.get(i - 1).equals("/")
+                            ||list.get(i - 1).equals("%")))
+                        error = error + i + ": Illegal placement of operator "
+                        + list.get(i) + " next to another operator.\n";
         System.out.println(error);
     }
 }
