@@ -9,7 +9,7 @@ package operators;
 public class Operators {
     
     /*
-     * Makes a call to the menu() method.
+     * Makes a call to the menu() method to start the program.
      */
     public static void main(String[] args) {
         Menu.menu();
