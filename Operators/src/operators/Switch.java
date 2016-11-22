@@ -1,6 +1,6 @@
 /*
- * The switch class - chooses the appropriate
- * methods for the requested data types.
+ * Switch class - contains one method that chooses the appropriate
+ * response for the request given in the parse() method.
  */
 package operators;
 

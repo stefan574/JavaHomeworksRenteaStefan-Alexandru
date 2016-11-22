@@ -1,6 +1,6 @@
 /*
- * The Menu class - displays the menu and
- * reads the arguments from the console
+ * Menu class - displays the menu and reads
+ * the arguments from the console.
  */
 package operators;
 

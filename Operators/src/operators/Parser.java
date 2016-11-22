@@ -1,8 +1,9 @@
 /*
- * The Parser class - parses the input; the result will
- * be given to the Switch class. 
- * It makes sure that there are no duplicates in
- * the output, no bad requests, no mistakes.
+ * Parser class - contains one method that searches the input 
+ * for requests for which it will create new instances of 
+ * the Switch class. 
+ * Mistakes such as duplicates, no input, bad requests, are 
+ * also treated here.
  */
 package operators;
 

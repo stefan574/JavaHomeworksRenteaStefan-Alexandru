@@ -1,7 +1,7 @@
 /*
- * Using all operators on all primitives
- * and wrapper classes associated with them
- * plus the String class.
+ * AllOperators class - contains a method for each primitive and
+ * wrapper class associated with it, and also for the String
+ * class, that shows which operators are applicable.
  */
 package operators;
 

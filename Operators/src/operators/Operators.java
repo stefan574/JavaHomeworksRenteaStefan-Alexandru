@@ -1,7 +1,5 @@
 /*
- * The project "Operators" - implements operations on all 
- * primitives and their associated wrapper classes and also, the
- * String class.
+ * Main class - makes a call to the menu() function.
  */
 package operators;
 
