@@ -1,16 +1,15 @@
 /*
- * The switch class - chooses the 
- * appropriate methods for the requested data types
+ * The switch class - chooses the appropriate
+ * methods for the requested data types.
  */
-
 package operators;
 
 /**
  * @author Stefan-Alexandru Rentea
  */
-
 public class Switch {
-    static void doSwitch(String string){
+    
+    void doSwitch(String string){
         switch(string) {
             case "1" :
                 AllOperators.forInt();  
@@ -72,17 +71,17 @@ public class Switch {
                 AllOperators.forShort();
                 AllOperators.forByte();
                 AllOperators.forChar();
-                AllOperators.forBoolean();
                 AllOperators.forFloat();
                 AllOperators.forDouble();
+                AllOperators.forBoolean();
                 AllOperators.forIntWrapper();
                 AllOperators.forLongWrapper();
                 AllOperators.forShortWrapper();
                 AllOperators.forByteWrapper();
                 AllOperators.forCharWrapper();
-                AllOperators.forBooleanWrapper();
                 AllOperators.forFloatWrapper();
                 AllOperators.forDoubleWrapper();
+                AllOperators.forBooleanWrapper();
                 AllOperators.forString();
                 break;
             default :
@@ -90,4 +89,5 @@ public class Switch {
                 break;
         }
     }
+    
 }
