@@ -1,6 +1,5 @@
 /*
- * Switch class - contains one method that chooses the appropriate
- * response for the request given in the parse() method.
+ * Switch class
  */
 package operators;
 
@@ -9,6 +8,10 @@ package operators;
  */
 public class Switch {
     
+    /*
+     * Chooses the appropriate response for the request received
+     * from the parse() method.
+     */
     void doSwitch(String string){
         switch(string) {
             case "1" :

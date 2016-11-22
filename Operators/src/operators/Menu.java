@@ -1,6 +1,5 @@
 /*
- * Menu class - displays the menu and reads
- * the arguments from the console.
+ * Menu class
  */
 package operators;
 
@@ -11,6 +10,9 @@ import java.util.Scanner;
  */
 public class Menu {
     
+    /*
+     * Displays the menu and reads the arguments from the console.
+     */
     static void menu() {
         
         System.out.println("\n1. int \t\t2. long \t3. short \t4. byte\n"

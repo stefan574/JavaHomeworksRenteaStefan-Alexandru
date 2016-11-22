@@ -1,5 +1,5 @@
 /*
- * Main class - makes a call to the menu() function.
+ * Main class
  */
 package operators;
 
@@ -8,6 +8,9 @@ package operators;
  */
 public class Operators {
     
+    /*
+     * Makes a call to the menu() method.
+     */
     public static void main(String[] args) {
         Menu.menu();
     }

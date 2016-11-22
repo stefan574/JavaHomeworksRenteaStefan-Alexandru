@@ -1,9 +1,5 @@
 /*
- * Parser class - contains one method that searches the input 
- * for requests for which it will create new instances of 
- * the Switch class. 
- * Mistakes such as duplicates, no input, bad requests, are 
- * also treated here.
+ * Parser class
  */
 package operators;
 
@@ -22,6 +18,12 @@ public class Parser {
     private String[] strings;
     private final List<String> list = new ArrayList<>();
     
+    /*
+     * Searches the input for requests for which it will create
+     * new instances of the Switch class. 
+     * Mistakes such as duplicates, no input, bad requests, are 
+     * also treated here.
+     */
     void doParse(String string) {
         string = string.replace(',', ' ');
         string = string.trim();
@@ -59,7 +61,8 @@ public class Parser {
                 checkExit = 1;
                 continue;
             }
-            /* A ' ' char(space character) is added to the front and back
+            /* 
+             * A ' ' char(space character) is added to the front and back
              * so that identification becomes 100% accurate.
              */
             checkExists = " " + iterator + " ";
