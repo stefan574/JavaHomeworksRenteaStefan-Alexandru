@@ -1,7 +1,6 @@
 /*
- * 
+ * OrderOfBrackets class
  */
-
 package pocketcomputer;
 
 import java.util.ArrayList;
@@ -11,25 +10,37 @@ import java.util.ListIterator;
 /**
  * @author Stefan-Alexandru Rentea
  */
-
 public class OrderOfBrackets {
-    void verifyOrderOfBrackets(List<String> list) {
+    
+    private int check;
+    private int squareEnvironement, roundEnvironement;
+    private int curlyCanClose;
+    private final List<String> curlyOpen;
+    private final List<String> squareOpen;
+    private final List<String> roundOpen;
+    private String string, error;
+    private ListIterator iterator;
+
+    public OrderOfBrackets() {
+        this.roundEnvironement = 0;
+        this.squareEnvironement = 0;
+        this.curlyCanClose = 0;
+        this.curlyOpen = new ArrayList<>();
+        this.squareOpen = new ArrayList<>();
+        this.roundOpen = new ArrayList<>();
+        this.error = "";
+    }
+    
+    /*
+     * Verifies the placement of brackets in the numerical expression.
+     */
+    String verifyOrderOfBrackets(List<String> list) {
         //order of brackets: curlybraketopen = fiecare deschidere
         //curlybracketenvironement = 1, restul 2 -> semnifica inca n au 
         //aparut dar trebuie musai ca sa fie corecta sintaxa
         //canclose - verifica daca poate sa inchida acum, altfel eroare
         
-        int check;
-        int squareEnvironement = 0, roundEnvironement = 0;
-        int curlyCanClose = 0;
-        
-        List<String> curlyOpen = new ArrayList<>();
-        List<String> squareOpen = new ArrayList<>();
-        List<String> roundOpen = new ArrayList<>();
-        
-        String string, error = "";
-        
-        ListIterator iterator = list.listIterator();
+        iterator = list.listIterator();
         
         while(iterator.hasNext()) {
             check = 1;
@@ -49,7 +60,8 @@ public class OrderOfBrackets {
                 if (check == 1) {
                     curlyCanClose++;
                     squareEnvironement = roundEnvironement = 2;
-                    curlyOpen.add((iterator.nextIndex()) + ": Curly bracket opened but not closed.\n");
+                    curlyOpen.add((iterator.nextIndex()) + ": Curly bracket"
+                            + " opened but not closed.\n");
                 }
             }
             
@@ -67,7 +79,8 @@ public class OrderOfBrackets {
                 if (check == 1) {
                     squareEnvironement = 1;
                     roundEnvironement = 2;
-                    squareOpen.add((iterator.nextIndex()) + ": Square bracket opened but not closed.\n");
+                    squareOpen.add((iterator.nextIndex()) + ": Square bracket"
+                            + " opened but not closed.\n");
                 }
             }
             
@@ -79,11 +92,12 @@ public class OrderOfBrackets {
                 }
                 if (check == 1) {
                     roundEnvironement = 1;
-                    roundOpen.add((iterator.nextIndex()) + ": Round bracket opened but not closed.\n");
+                    roundOpen.add((iterator.nextIndex()) + ": Round bracket"
+                            + " opened but not closed.\n");
                 }
             }
             
-            if (string.equals("}")&&(curlyCanClose >= 1)) {
+            if (string.equals("}") && (curlyCanClose >= 1)) {
                 curlyCanClose--;
                 curlyOpen.remove(curlyOpen.size() - 1);
                 if (squareEnvironement == 2) {
@@ -110,11 +124,11 @@ public class OrderOfBrackets {
                     }
             }
             else
-                if ((string.equals("}")&&(curlyCanClose == 0)))
+                if ((string.equals("}") && (curlyCanClose == 0)))
                     error = error + (iterator.nextIndex()) + ": Curly bracket"
                                 + " is closed before it was opened.\n";
             
-            if (string.equals("]")&&(squareEnvironement == 1)) {
+            if (string.equals("]") && (squareEnvironement == 1)) {
                 squareEnvironement = 0;
                 squareOpen.remove(squareOpen.size() - 1);
                 if (roundEnvironement == 2) {
@@ -130,11 +144,11 @@ public class OrderOfBrackets {
                     }
             }
             else
-                if ((string.equals("]")))
+                if (string.equals("]"))
                     error = error + (iterator.nextIndex()) + ": Square bracket"
                                 + " is closed before it was opened.\n";
             
-            if (string.equals(")")&&(roundEnvironement == 1)) {
+            if (string.equals(")") && (roundEnvironement == 1)) {
                 roundEnvironement = 0;
                 roundOpen.remove(roundOpen.size() - 1);
             }
@@ -144,13 +158,17 @@ public class OrderOfBrackets {
                             + " is closed before it was opened.\n";
         }
         
-        for (String line : curlyOpen)
+        curlyOpen.forEach((line) -> {
             error = error + line;
-        for (String line : squareOpen)
+        });
+        squareOpen.forEach((line) -> {
             error = error + line;
-        for (String line : roundOpen)
+        });
+        roundOpen.forEach((line) -> {
             error = error + line;
+        });
         
-        System.out.println(error);
+        return error;
     }
+    
 }

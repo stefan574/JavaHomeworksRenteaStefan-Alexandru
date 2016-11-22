@@ -1,7 +1,6 @@
 /*
- * 
+ * Menu class
  */
-
 package pocketcomputer;
 
 import java.util.Scanner;
@@ -9,10 +8,14 @@ import java.util.Scanner;
 /**
  * @author Stefan-Alexandru Rentea
  */
-
 public class Menu {
+    
+    /*
+     * Displays the menu, the current result and makes calls to
+     * the parse() method.
+     */
     static void menu(String current) {
-        System.out.println("\n1 \t2 \t3 \t4\n"
+        System.out.println("1 \t2 \t3 \t4\n"
                 + "5 \t6 \t7 \t8\n"
                 + "9 \t0 \t+ \t-\n"
                 + "* \t/ \t% \t.\n"
@@ -21,8 +24,8 @@ public class Menu {
         
         String string;
         
-        if (current.endsWith("+")||current.endsWith("-")||current.endsWith("*")
-                ||current.endsWith("/")||current.endsWith("%"))
+        if (current.endsWith("+") || current.endsWith("-") || current.endsWith("*")
+                || current.endsWith("/") || current.endsWith("%"))
             string = current.substring(0, current.length() - 1);
         else
             string = current;
@@ -33,40 +36,37 @@ public class Menu {
         Scanner scanner = new Scanner(System.in);
         string = scanner.nextLine().trim();
         
-        if (string.equals("+")||string.equals("-")||string.equals("*")
-                ||string.equals("/")||string.equals("%")) {
+        System.out.println();
+        
+        if ((string.length() < 2) && (string.equals("+")
+                || string.equals("-") || string.equals("*")
+                || string.equals("/") || string.equals("%"))) {
             string = current + string;
             menu(string);
         }
         else
-            if ((current.endsWith("+")||current.endsWith("-")
-                    ||current.endsWith("*")||current.endsWith("/")
-                    ||current.endsWith("%"))&&(new DoubleVerifier()
-                            .isDouble(string))) {
+            if ((new DoubleVerifier().isDouble(current.substring(0, 
+                    current.length() - 2))) && (current.endsWith("+")
+                    || current.endsWith("-") || current.endsWith("*")
+                    || current.endsWith("/") || current.endsWith("%"))
+                    && (new DoubleVerifier().isDouble(string))) {
                 string = current + string;
-                string = Parser.parse(string);
+                string = new Parser().parse(string);
                 menu(string);
             }
             else
-                if (((string.startsWith("+")||string.startsWith("-")
-                        ||string.startsWith("*")||string.startsWith("/")
-                        ||string.startsWith("%"))&&string.length() > 1)
-                        &&(new DoubleVerifier()
-                            .isDouble(current))) {
+                if (((string.startsWith("+") || string.startsWith("-")
+                        || string.startsWith("*") || string.startsWith("/")
+                        || string.startsWith("%")) && string.length() > 1)
+                        && (new DoubleVerifier().isDouble(current))) {
                     string = current + string;
-                    string = Parser.parse(string);
+                    string = new Parser().parse(string);
                     menu(string);
                 }
-                    else {
-                        string = Parser.parse(string);
-                        menu(string);
-                    }
-        //string = current + "+" + string;
-        //menu(Parser.parse(string));
-        
-        //String string = "1 + 2";
-        
-        //Parser.parse(string);
-        //menu(string);
+                else {
+                    string = new Parser().parse(string);
+                    menu(string);
+                }
     }
+    
 }
