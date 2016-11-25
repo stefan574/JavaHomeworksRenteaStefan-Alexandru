@@ -74,7 +74,7 @@ public class Parser {
                     list.set(i + 1, "-" + list.get(i + 1));
 
         new ExitProgram().verifyExitProgram(list);
-        new Ac().verifyAC(list);
+        new Ac().verifyAc(list);
         new RepetitiveElements().eliminateRepetitive(list);
         
         error = error + new ExistenceOfElements().verifyExistenceOfElements(list);
