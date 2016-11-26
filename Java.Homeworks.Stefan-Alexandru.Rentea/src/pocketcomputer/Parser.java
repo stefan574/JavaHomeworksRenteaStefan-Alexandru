@@ -16,18 +16,20 @@ public class Parser {
     private final List<String> list;
 
     public Parser() {
-        this.list = new ArrayList<>();
-        this.error = "";
-        this.aux = "";
         this.checkPreviousIsNumber = 0;
+        this.aux = "";
+        this.error = "";
+        this.list = new ArrayList<>();
     }
     
     /*
      * Prepares the numerical expression for verification and evalution.
      */
     String parse(String string) {
-        //making the input a string of elements separated by only
-        //one ' ' char(space character)
+        /*
+         * making the input a string of elements separated by only
+         * one ' ' char(space character)
+         */
         string = string.trim();
         while(string.contains("  "))
             string = string.replaceAll("  ", " ");
@@ -65,9 +67,10 @@ public class Parser {
         //remove every ' ' char(space character) from the list
         while(list.contains(" "))
             list.remove(" ");
-        
-        //if we find a negative number, we need to add the '-' char
-        //(minus character) to the corresponding string element in the list
+        /*
+         * if we find a negative number, we need to add the '-' char
+         * (minus character) to the corresponding string element in the list
+         */ 
         for (int i = 0; i < list.size() - 1; i++)
             if (list.get(i).equals("-") && (list.size() - 1 > i))
                 if (new DoubleVerifier().isDouble(list.get(i + 1)))

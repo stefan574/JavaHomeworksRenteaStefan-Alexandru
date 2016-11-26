@@ -48,10 +48,10 @@ public class Requests {
     void displayRequests() {
         if (!requestsList.isEmpty()) {
             int i = 0;
-            System.out.println("\nId      CarName     CarColor\n"
-                    + "============================\n");
+            System.out.println("Id   CarName      CarColor\n"
+                    + "==========================\n");
             for (Car car : requestsList) {
-                System.out.println(++i + "      " + car.display());
+                System.out.println(++i + "     " + car.display());
             }
             System.out.println();
         }
@@ -60,12 +60,9 @@ public class Requests {
     }
 
     boolean verifyExistenceOfCarRequest(Car car) {
-        for (Car request : requestsList)
-            if (car.getName().equals(request.getName())
-                    && car.getColor().equals(request.getColor())
-                    && car.getValue() == request.getValue()) 
-                return true;
-        return false;
+        return requestsList.stream().anyMatch((request) -> (car.getName().equals(request.getName())
+                && car.getColor().equals(request.getColor())
+                && car.getValue() == request.getValue()));
     }
     
     void resolveRequest() {

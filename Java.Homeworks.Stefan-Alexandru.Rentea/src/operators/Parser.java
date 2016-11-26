@@ -12,11 +12,20 @@ import java.util.List;
  */
 public class Parser {
     
-    private int checkExit = 0;
-    private final String options = " 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 ";
-    private String checkExists, checkNotExists = null;
+    private int checkExit;
+    private final String options;
+    private String checkExists, checkNotExists;
     private String[] strings;
-    private final List<String> list = new ArrayList<>();
+    private final List<String> list;
+
+    public Parser() {
+        this.checkExit = 0;
+        this.options = " 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 ";
+        this.checkExists = null;
+        this.checkNotExists = null;
+        this.strings = null;
+        this.list = new ArrayList<>();
+    }
     
     /*
      * Searches the input for requests for which it will create

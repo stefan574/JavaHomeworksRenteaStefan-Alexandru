@@ -45,10 +45,10 @@ public class Cars {
     void displayCars() {
         if (!carsList.isEmpty()) {
             int i = 0;
-            System.out.println("\nId      CarName     CarColor\n"
-                    + "============================\n");
+            System.out.println("Id   CarName      CarColor\n"
+                    + "==========================\n");
             for (Car car : carsList) {
-                System.out.println(++i + "      " + car.display());
+                System.out.println(++i + "     " + car.display());
             }
             System.out.println();
         }
@@ -57,12 +57,10 @@ public class Cars {
     }
     
     boolean verifyExistenceOfCarAvailability(Car car) {
-        for (Car available : carsList)
-            if (car.getName().equals(available.getName())
-                    && car.getColor().equals(available.getColor())
-                    && car.getValue() == available.getValue())
-                return true;
-        return false;
+        return carsList.stream().anyMatch((available) -> (
+                car.getName().equals(available.getName())
+                        && car.getColor().equals(available.getColor())
+                        && car.getValue() == available.getValue()));
     }
     
 }

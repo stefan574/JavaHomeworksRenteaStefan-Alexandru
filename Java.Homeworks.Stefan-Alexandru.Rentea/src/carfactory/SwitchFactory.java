@@ -8,6 +8,9 @@ package carfactory;
  */
 public class SwitchFactory {
     
+    /*
+     * Chooses the appropriate response depending on the String operation
+     */
     static void doFactorySwitch(Factory factory, String option) {
         switch(option) {
             case "1" :
@@ -27,11 +30,9 @@ public class SwitchFactory {
                 CustomersMenu.customersMenu(factory.getCustomers());
                 break;
             case "6" :
-                if (factory.getRequests().getRequestsList() == null
-                        || factory.getRequests().getRequestsList().isEmpty()) {
+                if (factory.getRequests().getRequestsList().isEmpty())
                     System.exit(0);
                     //break; - not necessary
-                }
                 else {
                     RequestsMenu.requestsMenu(factory.getRequests());
                     break;

@@ -11,9 +11,16 @@ import java.util.ListIterator;
  */
 public class ExistenceOfElements {
     
-    private final String elements = " { } ( ) [ ] / * - + % ";
-    private String string, error = "";
+    private final String elements;
+    private String string, error;
     private ListIterator iterator;
+
+    public ExistenceOfElements() {
+        this.elements = " { } ( ) [ ] / * - + % ";
+        this.string = null;
+        this.error = "";
+        this.iterator = null;
+    }
     
     /*
      * Verifies if the elements from the given list are 

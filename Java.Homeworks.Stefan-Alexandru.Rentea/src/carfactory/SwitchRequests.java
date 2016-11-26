@@ -8,6 +8,9 @@ package carfactory;
  */
 public class SwitchRequests {
     
+    /*
+     * Chooses the appropriate response depending on the String operation
+     */
     static void doRequestsSwitch(Requests requests, String option) {
         switch(option) {
             case "1" : 

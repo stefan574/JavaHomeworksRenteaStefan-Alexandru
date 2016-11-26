@@ -67,7 +67,7 @@ public class Switch {
                 break;
             case "18" :
                 System.exit(0);
-                break;
+                //break; - not necessary
             case "19" :
                 AllOperators.forInt();
                 AllOperators.forLong();

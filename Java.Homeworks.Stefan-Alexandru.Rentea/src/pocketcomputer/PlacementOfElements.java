@@ -10,8 +10,13 @@ import java.util.List;
  */
 public class PlacementOfElements {
     
-    private String error = "";
-    private int checkNumberExistence = 0;
+    private String error;
+    private int checkNumberExistence;
+
+    public PlacementOfElements() {
+        this.error = "";
+        this.checkNumberExistence = 0;
+    }
     
     /*
      * Verifies the placement of elements in the numerical expression.

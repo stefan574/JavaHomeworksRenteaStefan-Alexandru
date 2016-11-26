@@ -8,6 +8,10 @@ package carfactory;
  */
 public class FactoryMenu {
     
+    /*
+     * Displays the menu for the factory variable and switches to the
+     * selected operation.
+     */
     static void factoryMenu(Factory factory) {
         String string = "Choice:";
         System.out.println("1. Display Delivered Cars Per Customer."

@@ -8,6 +8,10 @@ package carfactory;
  */
 public class CustomerMenu {
     
+    /*
+     * Displays the menu for the customer variable and switches to the
+     * selected operation.
+     */
     static void customerMenu(Customer customer) {
         String string = "Choice:    ";
         System.out.println("1. Display Details of Customer.\n2. Make Request of"

@@ -1,2 +1,2 @@
-# JavaHomeworksRenteaStefan-Alexandru
-The Pocket Computer Project
+# 	JavaHomeworks
+Rentea Stefan-Alexandru

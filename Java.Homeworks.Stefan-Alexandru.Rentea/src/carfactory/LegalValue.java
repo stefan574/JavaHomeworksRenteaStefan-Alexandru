@@ -14,11 +14,16 @@ public class LegalValue {
     String string;
     
     /**
-     * Returns a legal value for parameter requestString
+     * Returns a legal value for the parameter requestString
      */
     String getLegalValue(String requestString) {
         WHILE:
         while(true) {
+            /*
+             * For menus, the last char of requestString is the number 
+             * of options needed to be displayed on screen. When printing
+             * requestString to the console, we need not display that char.
+             */
             if (new IntVerifier().isInt(requestString
                     .substring(requestString.length() -1)))
                 System.out.print(requestString.substring(0,
@@ -55,8 +60,8 @@ public class LegalValue {
                         //color
                         if (requestString.contains("Color")) {
                             for (Color color : Color.values())
-                                if (string.equals(color.toString()))
-                                    return string;
+                                if (string.equalsIgnoreCase(color.toString()))
+                                    return color.toString();
                         }
                         else
                             //car id, customer id, request id
@@ -99,6 +104,7 @@ public class LegalValue {
                                                 return "" + new DoublePrecision()
                                                         .doPrecision(Double.parseDouble(string));
                                             else 
+                                                //value
                                                 if (requestString.contains("value")
                                                     && new DoubleVerifier().isDouble(string))
                                                 return "" + new DoublePrecision()

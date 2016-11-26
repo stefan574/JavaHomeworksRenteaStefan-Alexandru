@@ -22,13 +22,16 @@ public class OrderOfBrackets {
     private ListIterator iterator;
 
     public OrderOfBrackets() {
-        this.roundEnvironement = 0;
+        this.check = 0;
         this.squareEnvironement = 0;
+        this.roundEnvironement = 0;
         this.curlyCanClose = 0;
         this.curlyOpen = new ArrayList<>();
         this.squareOpen = new ArrayList<>();
         this.roundOpen = new ArrayList<>();
         this.error = "";
+        this.string = null;
+        this.iterator = null;
     }
     
     /*

@@ -8,6 +8,9 @@ package carfactory;
  */
 public class SwitchCustomer {
     
+    /*
+     * Chooses the appropriate response depending on the String operation
+     */
     static void doCustomerSwitch(Customer customer, String operation) {
         switch(operation) {
             case "1" : 

@@ -11,6 +11,7 @@ import java.util.List;
  */
 public class Customer {
     
+    private final long timeOfEmployment; 
     private final String name;
     private double money, taxes;
     private final double salary; 
@@ -18,6 +19,7 @@ public class Customer {
     private Customers customers;
 
     public Customer() {
+        timeOfEmployment = System.currentTimeMillis();
         this.name = new LegalValue().getLegalValue("Name of Customer: ");
         this.salary = Double.parseDouble(new LegalValue()
                 .getLegalValue("Salary of " + this.name + ": "));
@@ -40,8 +42,12 @@ public class Customer {
         this.taxes = this.taxes + tax;
     }
     
+    /*
+     * Simulates getting salary by growing the money variable each second
+     * with a fix amount and subtracting the taxes paid up untill that moment
+     */
     public double getMoney() {
-        long time = (System.currentTimeMillis() - CarFactory.start)/1000;
+        long time = (System.currentTimeMillis() - timeOfEmployment)/1000;
         money = new DoublePrecision().doPrecision((double)(salary*time)) - taxes;
         return money;
     }
@@ -61,10 +67,15 @@ public class Customer {
             System.out.println(Arrays.toString(Color.values()) + "\n");
             color = new LegalValue().getLegalValue(color);
             System.out.println();
-            ownedCars.getCarsList().get(Integer.parseInt(string) - 1)
-                    .setColor(Color.valueOf(color));
-            setTaxes(100.0);
-            System.out.println("Car RePainted!\n");
+            if (!color.equalsIgnoreCase(ownedCars.getCarsList()
+                    .get(Integer.parseInt(string) - 1).getColor().toString())) {
+                ownedCars.getCarsList().get(Integer.parseInt(string) - 1)
+                        .setColor(Color.valueOf(color));
+                setTaxes(100.0);
+                System.out.println("Car RePainted!\n");
+            }
+            else
+                System.out.println("Car is already painted in the color " + color + "!\n");
         }
         else
             System.out.println("Customer doesn't have any car to repaint!\n");   
@@ -107,7 +118,7 @@ public class Customer {
     }
     
     void displayCars() {
-        System.out.println("CustomerName: " + name);
+        System.out.println("CustomerName: " + name + "\n");
         ownedCars.displayCars();
     }
     
