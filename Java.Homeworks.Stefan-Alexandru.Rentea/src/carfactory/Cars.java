@@ -22,8 +22,12 @@ public class Cars {
     }
 
     public void addToCarsList(Car car) {
-        carsList.add(car);
-        System.out.println("\nCar added!\n");
+        if (verifyExistenceOfCarAvailability(car))
+            System.out.println("Car Already Exists in Available Cars List!\n");
+        else {
+                carsList.add(car);
+                System.out.println("\nCar added!\n");
+            }
     }
     
     void removeFromCarsList() {

@@ -60,13 +60,14 @@ public class Requests {
     }
 
     boolean verifyExistenceOfCarRequest(Car car) {
-        return requestsList.stream().anyMatch((request) -> (car.getName().equals(request.getName())
+        return requestsList.stream().anyMatch((request) -> 
+                (car.getName().equals(request.getName())
                 && car.getColor().equals(request.getColor())
                 && car.getValue() == request.getValue()));
     }
     
     void resolveRequest() {
-        if (requestsList != null && !requestsList.isEmpty()) {
+        if (!requestsList.isEmpty()) {
             displayRequests();
             String string = "Which Request: ";
             string = new LegalValue().getLegalValue(string

@@ -28,17 +28,19 @@ public class RepetitiveElements {
                         list.remove(j);
                 }
         
+        // removing equals char at the end of the string
         j = list.size() - 1;
             while((j >= 0) && list.get(j).equals("="))
                     list.remove(j--);
-            
-        for (j = 0; j < list.size() - 1; j++)
+        
+        // for the periods chars between numbers    
+        for (j = 0; j < list.size(); j++)
             if (list.get(j).contains("..")) {
                 string = list.get(j);
                 while(string.contains(".."))
                     string = string.replace("..", ".");
                 list.set(j, string);
-            }      
+            }  
     }
     
 }

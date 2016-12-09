@@ -76,8 +76,11 @@ public class Parser {
                 if (new DoubleVerifier().isDouble(list.get(i + 1)))
                     list.set(i + 1, "-" + list.get(i + 1));
 
+        // if "exit" found, close program
         new ExitProgram().verifyExitProgram(list);
+        // if "ac" found, close program
         new Ac().verifyAc(list);
+        //eliminate repetitive elements
         new RepetitiveElements().eliminateRepetitive(list);
         
         error = error + new ExistenceOfElements().verifyExistenceOfElements(list);
@@ -87,7 +90,7 @@ public class Parser {
         if (error.equals("")) 
             return new NumericExpression().solveNumericExpression(list) + "";
         else {
-            System.out.println(error);
+            new OrderOfErrors().displayErrorsInOrder(error);
             return ("0.0");
         }
     }

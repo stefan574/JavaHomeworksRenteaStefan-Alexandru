@@ -38,9 +38,9 @@ public class Menu {
         
         System.out.println();
         
-        if ((string.length() < 2) && (string.equals("+")
+        if (string.equals("+")
                 || string.equals("-") || string.equals("*")
-                || string.equals("/") || string.equals("%"))) {
+                || string.equals("/") || string.equals("%")) {
             string = current + string;
             menu(string);
         }

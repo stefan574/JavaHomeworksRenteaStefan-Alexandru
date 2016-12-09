@@ -16,6 +16,7 @@ public class Car {
         this.name = new LegalValue().getLegalValue("Name of Car: ");
         this.color = Color.valueOf(new LegalValue().getLegalValue("Color of Car: "));
         this.value = Double.parseDouble(new LegalValue().getLegalValue("The value of the car is: "));
+        System.out.println();
     }
     
     public Car(Car car) {
