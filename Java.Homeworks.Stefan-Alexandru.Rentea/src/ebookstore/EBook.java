@@ -42,16 +42,14 @@ public abstract class EBook {
     
     private void printListOfAuthors() {
         if (listOfAuthors.size() == 1) {
-            System.out.print("Author: \n");
+            System.out.print("Author: ");
             listOfAuthors.get(0).printAuthor();
-            System.out.println();
         }
         else {
             int i = 0;
-            System.out.print("Author_" + i++ + ": \n");
             for (Author author : listOfAuthors) {
+                System.out.print("Author_" + i++ + ": ");
                 author.printAuthor();
-                System.out.println();
             }
         }
     }

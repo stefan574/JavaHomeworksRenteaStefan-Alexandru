@@ -11,13 +11,14 @@ import java.util.List;
  */
 public class Authors {
     
-    static List<Author> listOfAuthors = new ArrayList<>();
+    static List<Author> listOfAuthors; //= new ArrayList<>();
     
-    /*static {
+    static {
         listOfAuthors = new ArrayList<>();
-    }*/
+    }
     
     int chooseFromListOfAuthors() {
+        System.out.println();
         for (int i = 0; i < listOfAuthors.size(); i++)
             if (listOfAuthors.get(i).getFirstName().contains("nonymous")
                 && listOfAuthors.get(i).getFamilyName() == null)

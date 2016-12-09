@@ -105,7 +105,7 @@ public class LegalValue {
                     && Integer.parseInt(string) > 0
                     && Integer.parseInt(string) <= requestInt)
                 break;
-            System.out.println("\nTry Again!\n");
+            System.out.println("\nTry Again!");
         }
         return Integer.parseInt(string);
     }

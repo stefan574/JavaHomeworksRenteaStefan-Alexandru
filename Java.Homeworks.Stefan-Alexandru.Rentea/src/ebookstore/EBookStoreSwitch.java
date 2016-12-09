@@ -15,6 +15,7 @@ class EBookStoreSwitch {
                 break;
             case 2 :
                 eBookStore.getEBooks().deleteEBook();
+                System.out.println();
                 break;
             case 3 :
                 eBookStore.getEBooks().printListOfEBooks();
@@ -25,6 +26,7 @@ class EBookStoreSwitch {
                 break;
             case 5 :
                 eBookStore.getEBooks().addRatingToEBook();
+                System.out.println();
                 break;
             case 6 :
                 System.exit(0);

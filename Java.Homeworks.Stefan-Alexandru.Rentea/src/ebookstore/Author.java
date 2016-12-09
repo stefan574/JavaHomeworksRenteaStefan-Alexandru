@@ -19,10 +19,11 @@ class Author {
         this.familyName = new LegalValue().getLegalValue("Family Name: ");
     }
     
+    // used for anonymous authors
     public Author(String string) {
         this.id = count++;
         this.firstName = string + this.id;
-        this.familyName = null;
+        this.familyName = "";
     }
 
     public Author(Author author) {
@@ -33,10 +34,9 @@ class Author {
     
     void printAuthor() {
         if (familyName != null)
-            System.out.print("Id: " + id + "\nFirst Name: " + firstName
-                    + "\nFamily Name: " + familyName + "\n");
+            System.out.print(firstName + " " + familyName + ", id: " + id + "\n");
         else
-            System.out.print("Id: " + id + "\nFirst Name: " + firstName + "\n");
+            System.out.print(firstName + ", id: " + id + "\n");
     }
 
     public String getFirstName() {

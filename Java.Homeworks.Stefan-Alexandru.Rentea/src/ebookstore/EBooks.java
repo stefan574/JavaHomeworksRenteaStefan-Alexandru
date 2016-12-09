@@ -36,7 +36,7 @@ public class EBooks {
         if (!listOfEBooks.isEmpty()) {
             choice = new LegalValue().getLegalValue(listOfEBooks.size());
             listOfEBooks.remove(choice - 1);
-            System.out.println("\nEBook Removed!\n");
+            System.out.println("\nEBook Removed!");
         }
     }
     
@@ -68,6 +68,7 @@ public class EBooks {
             for (int i = 0; i < listOfEBooks.size(); i++) {
                 System.out.print("Book_" + (i + 1) + ":\n");
                 listOfEBooks.get(i).printDetailedEBook();
+                System.out.println();
             }
         else 
             System.out.println("List of EBooks is Empty!");
