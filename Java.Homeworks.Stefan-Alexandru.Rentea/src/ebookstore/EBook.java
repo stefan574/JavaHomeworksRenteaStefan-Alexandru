@@ -92,7 +92,7 @@ public abstract class EBook {
                         firstAuthor = 1;
                     }
                     else 
-                        System.out.println("The list of Authors is Empty!\n");
+                        System.out.println("\nThe list of Authors is Empty!");
                 else 
                     if (choice == 3) {
                         Author author = new Author("Anonymous");
