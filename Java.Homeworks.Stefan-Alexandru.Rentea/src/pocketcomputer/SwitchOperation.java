@@ -33,7 +33,7 @@ public class SwitchOperation {
                     //Write in log file
                     break;
         }
-        return new DoublePrecision().doPrecision(result);
+        return new DoublePrecision().doPrecision(result, 3);
     }
     
 }
