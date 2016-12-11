@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * @author Stefan-Alexandru Rentea
  */
-public abstract class EBook {
+public abstract class EBook implements Book {
     
     private final String isbn;
     private final String title;
@@ -40,7 +40,8 @@ public abstract class EBook {
             return rating + "";
     }
     
-    private void printListOfAuthors() {
+    @Override
+    public void printListOfAuthors() {
         if (listOfAuthors.size() == 1) {
             System.out.print("Author: ");
             listOfAuthors.get(0).printAuthor();
@@ -54,7 +55,8 @@ public abstract class EBook {
         }
     }
     
-    void addRating(int rating) {
+    @Override
+    public void addRating(int rating) {
         this.rating = 0;
         listOfRatings.add(rating);
         for (int ratingToAdd : listOfRatings)
@@ -63,14 +65,16 @@ public abstract class EBook {
                 .doPrecision(this.rating/listOfRatings.size(), 2);
     }
 
-    private String getIsbnValue() {
+    @Override
+    public final String getIsbnValue() {
         return (int)(Math.random()*900)+100 + "-"
                 + (int)(Math.random()*90)+10 + "-"
                 + (int)(Math.random()*90000)+10000 + "-"
                 + (int)(Math.random()*900)+100;
     }
     
-    private void addAuthor() {
+    @Override
+    public final void addAuthor() {
         int firstAuthor, choice;
         firstAuthor = 0;
         while (true) {
@@ -144,6 +148,7 @@ public abstract class EBook {
         return this.price;
     }
     
+    @Override
     public abstract String getSpecialField();
     
 }
