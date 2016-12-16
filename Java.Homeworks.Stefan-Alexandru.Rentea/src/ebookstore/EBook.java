@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * @author Stefan-Alexandru Rentea
  */
-public abstract class EBook implements Book {
+abstract class EBook implements Book {
     
     private final String isbn;
     private final String title;
@@ -59,18 +59,21 @@ public abstract class EBook implements Book {
     public void addRating(int rating) {
         this.rating = 0;
         listOfRatings.add(rating);
-        for (int ratingToAdd : listOfRatings)
+        listOfRatings.forEach((ratingToAdd) -> {
             this.rating += ratingToAdd;
+        });
         this.rating = new DoublePrecision()
                 .doPrecision(this.rating/listOfRatings.size(), 2);
     }
-
+    
+    
+    // The isbn value will be something like "xxx-xx-xxxxx-xx".
     @Override
     public final String getIsbnValue() {
-        return (int)(Math.random()*900)+100 + "-"
-                + (int)(Math.random()*90)+10 + "-"
-                + (int)(Math.random()*90000)+10000 + "-"
-                + (int)(Math.random()*900)+100;
+        return (int)(Math.random()*899)+100 + "-"
+                + (int)(Math.random()*89)+10 + "-"
+                + (int)(Math.random()*89999)+10000 + "-"
+                + (int)(Math.random()*899)+100;
     }
     
     @Override
@@ -105,6 +108,10 @@ public abstract class EBook implements Book {
                         firstAuthor = 1;
                     }
                     else
+                        /*
+                         * If "exit" is selected and no author was created,
+                         * an anonymous author will be automatically created.
+                         */
                         if (choice == 4 && firstAuthor == 0) {
                             Author author = new Author("Anonymous");
                             Authors.listOfAuthors.add(author);

@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * @author Stefan-Alexandru Rentea
  */
-public class EBooks {
+class EBooks {
     
     private final List<EBook> listOfEBooks;
 
@@ -71,22 +71,27 @@ public class EBooks {
                 System.out.println();
             }
         else 
-            System.out.println("List of EBooks is Empty!");
+            System.out.println("List of EBooks is Empty!\n");
     }
     
     private boolean verifyExistenceOfEBook(EBook eBook) {
+        
+        int numberOfIdenticalAuthors = 0;
+        
         for (EBook eBookFromList : listOfEBooks)
             if (eBook.getNumberOfPages() == eBookFromList.getNumberOfPages()
-                    && eBook.getTitle().equalsIgnoreCase(eBookFromList.getTitle()))
+                    && eBook.getTitle().equalsIgnoreCase(eBookFromList.getTitle())
+                    && eBook.getSpecialField().equalsIgnoreCase(eBookFromList.getSpecialField())
+                    && eBook.getListOfAuthors().size() == eBookFromList.getListOfAuthors().size())
                 for (Author author : eBook.getListOfAuthors())
-                    for (Author authorFromList : eBookFromList.getListOfAuthors())
-                        if (author.getFirstName()
-                                .equalsIgnoreCase(authorFromList.getFirstName())
-                                && author.getFamilyName()
-                                        .equalsIgnoreCase(authorFromList.getFamilyName())
-                                && author.getId() == authorFromList.getId())
-                            return true;
-        return false;
+                    numberOfIdenticalAuthors = eBookFromList.getListOfAuthors()
+                            .stream().filter((authorFromList) -> 
+                                    (author.getFirstName().equalsIgnoreCase(authorFromList.getFirstName())
+                                            && author.getFamilyName().equalsIgnoreCase(authorFromList.getFamilyName())
+                                            && author.getId() == authorFromList.getId())).map((_item) -> 1)
+                            .reduce(numberOfIdenticalAuthors, Integer::sum);
+        
+        return numberOfIdenticalAuthors == eBook.getListOfAuthors().size();
     }
     
 }

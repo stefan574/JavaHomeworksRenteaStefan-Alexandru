@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class Authors {
     
-    static List<Author> listOfAuthors; //= new ArrayList<>();
+    static List<Author> listOfAuthors;
     
     static {
         listOfAuthors = new ArrayList<>();

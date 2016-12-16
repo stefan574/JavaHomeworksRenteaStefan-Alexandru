@@ -6,7 +6,7 @@ package ebookstore;
 /**
  * @author Stefan-Alexandru Rentea
  */
-public class EBookStore {
+class EBookStore {
     
     private final EBooks eBooks;
 
