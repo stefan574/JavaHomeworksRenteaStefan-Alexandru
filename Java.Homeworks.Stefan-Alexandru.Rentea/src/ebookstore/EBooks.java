@@ -4,7 +4,9 @@
 package ebookstore;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Stefan-Alexandru Rentea
@@ -12,13 +14,19 @@ import java.util.List;
 class EBooks {
     
     private final List<EBook> listOfEBooks;
-
+    private final Map<EBook, List<Rating>> listOfRatings;
+    
     public EBooks() {
         this.listOfEBooks = new ArrayList<>();
+        this.listOfRatings = new HashMap<>();
     }
     
     public List<EBook> getListOfEBooks() {
         return listOfEBooks;
+    }
+    
+    public Map<EBook, List<Rating>> getListOfRatings() {
+        return listOfRatings;
     }
     
     boolean addEBook(EBook eBook) {
@@ -42,13 +50,21 @@ class EBooks {
     
     void addRatingToEBook() {
         int choice;
-        String rating;
         printListOfEBooks();
         if (!listOfEBooks.isEmpty()) {
             choice = new LegalValue().getLegalValue(listOfEBooks.size());
-            rating = new LegalValue().getLegalValue("Rating: ");
-            listOfEBooks.get(choice - 1).addRating(Integer.parseInt(rating));
-            System.out.println("\nRating Added!\n");
+            Rating rating = new Rating();
+            listOfEBooks.get(choice - 1).addRating(rating.getRating());
+            if (listOfRatings.containsKey(listOfEBooks.get(choice - 1)))
+                listOfRatings.get(listOfEBooks.get(choice - 1)).add(rating);
+            else {
+                List<Rating> list = new ArrayList<>();
+                list.add(rating);
+                listOfRatings.put(listOfEBooks.get(choice - 1), list);
+            }
+            
+            
+            System.out.println("\nRating Added!");
         }
     }
     
@@ -63,15 +79,40 @@ class EBooks {
    }
     
     void printDetailedListOfEBooks() {
+        int j = 1;
         System.out.println();
         if (!listOfEBooks.isEmpty())
             for (int i = 0; i < listOfEBooks.size(); i++) {
                 System.out.print("Book_" + (i + 1) + ":\n");
                 listOfEBooks.get(i).printDetailedEBook();
+                if (listOfRatings.containsKey(listOfEBooks.get(i)))
+                    for (Rating rating : listOfRatings.get(listOfEBooks.get(i)))
+                        System.out.println("Rating_" + j++ + ": " + rating.printRating());
                 System.out.println();
             }
         else 
             System.out.println("List of EBooks is Empty!\n");
+    }
+    
+    void modifyDescriptionOfRating() {
+        int choice;
+        int j = 1;
+        if (!listOfRatings.isEmpty()) {
+            printListOfEBooks();
+            if (!listOfEBooks.isEmpty()) {
+                choice = new LegalValue().getLegalValue(listOfEBooks.size()) - 1;
+                if (listOfRatings.containsKey(listOfEBooks.get(choice))) {
+                    for (Rating rating : listOfRatings.get(listOfEBooks.get(choice)))
+                            System.out.println("\nRating_" + j++ + ": " + rating.printRating());
+                    j = new LegalValue().getLegalValue(j--) - 1;
+                    listOfRatings.get(listOfEBooks.get(choice)).get(j).setDescription();
+                }
+                else
+                    System.out.println("\nList of Ratings for this EBook is Empty!");
+            }
+        }
+        else 
+            System.out.println("\nList of Ratings is Empty!");
     }
     
     private boolean verifyExistenceOfEBook(EBook eBook) {

@@ -29,6 +29,10 @@ class EBookStoreSwitch {
                 System.out.println();
                 break;
             case 6 :
+                eBookStore.getEBooks().modifyDescriptionOfRating();
+                System.out.println();
+                break;
+            case 7 :
                 System.exit(0);
                 //break; - not necessary
             default :

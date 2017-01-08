@@ -16,7 +16,7 @@ abstract class EBook implements Book {
     private final int numberOfPages;
     private final double price;
     private double rating;
-    private final List<Integer> listOfRatings;
+    private final List<Double> listOfRatings;
     private final List<Author> listOfAuthors;
 
     public EBook() {
@@ -24,7 +24,7 @@ abstract class EBook implements Book {
         this.title = new LegalValue().getLegalValue("Title: ");
         this.numberOfPages = Integer.parseInt(new LegalValue()
                 .getLegalValue("Number of Pages: "));
-        this.price = Integer.parseInt(new LegalValue()
+        this.price = Double.parseDouble(new LegalValue()
                 .getLegalValue("Price: "));
         this.rating = 0;
         this.listOfRatings = new ArrayList<>();
@@ -56,7 +56,7 @@ abstract class EBook implements Book {
     }
     
     @Override
-    public void addRating(int rating) {
+    public void addRating(double rating) {
         this.rating = 0;
         listOfRatings.add(rating);
         listOfRatings.forEach((ratingToAdd) -> {
@@ -65,8 +65,7 @@ abstract class EBook implements Book {
         this.rating = new DoublePrecision()
                 .doPrecision(this.rating/listOfRatings.size(), 2);
     }
-    
-    
+
     // The isbn value will be something like "xxx-xx-xxxxx-xx".
     @Override
     public final String getIsbnValue() {

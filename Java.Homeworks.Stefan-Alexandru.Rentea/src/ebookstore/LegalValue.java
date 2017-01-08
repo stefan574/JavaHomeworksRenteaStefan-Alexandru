@@ -37,7 +37,8 @@ public class LegalValue {
             string = scanner.nextLine().trim(); 
             if (requestString.equals("Title: ")
                     || requestString.equals("First Name: ")
-                    || requestString.equals("Family Name: ")) {
+                    || requestString.equals("Family Name: ")
+                    || requestString.equals("User Name: ")) {
                 for(int i = 0; i < string.length() - 1; i++)
                     if (!Character.isLetter(string.charAt(i))
                             && !Character.isDigit(string.charAt(i))) {
@@ -55,9 +56,9 @@ public class LegalValue {
                 }
                 else 
                     if (requestString.equals("Price: ")
-                            && new IntVerifier().isInt(string)) {
-                        if (Integer.parseInt(string) > -1
-                            && Integer.parseInt(string) < 100000)
+                            && new DoubleVerifier().isDouble(string)) {
+                        if (Double.parseDouble(string) > -1
+                            && Double.parseDouble(string) < 100000)
                         break;
                     }
                     else 
@@ -85,12 +86,20 @@ public class LegalValue {
                                                 break WHILE;
                                     }
                                     else 
-                                        if (requestString.equalsIgnoreCase("Rating: ")
-                                                && new IntVerifier().isInt(string)) {
-                                            if (Integer.parseInt(string) > 0
-                                                && Integer.parseInt(string) < 6)
-                                            break;
+                                        if (requestString.equalsIgnoreCase("Rating: ")) {
+                                                if (string.matches("0.5|1|1.5|2|2.5|3|3.5|4|4.5|5"))
+                                                    break;
                                         }
+                                        else
+                                            if (requestString.equalsIgnoreCase("Description: ")
+                                                    && string.length() < 256) {
+                                                if (string.equals("")) {
+                                                    string = "No Description.";
+                                                    break;
+                                                }
+                                                else
+                                                    break;
+                                            }
         System.out.println("\nTry again!");
         }
         return string;

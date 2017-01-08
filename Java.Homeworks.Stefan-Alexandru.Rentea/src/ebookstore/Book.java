@@ -9,7 +9,7 @@ package ebookstore;
 public interface Book {
     
     void printListOfAuthors();
-    void addRating(int rating);
+    void addRating(double rating);
     String getIsbnValue();
     void addAuthor();
     String getSpecialField();
