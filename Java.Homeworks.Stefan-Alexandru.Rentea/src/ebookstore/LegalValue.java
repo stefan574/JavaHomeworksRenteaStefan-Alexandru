@@ -39,13 +39,19 @@ public class LegalValue {
                     || requestString.equals("First Name: ")
                     || requestString.equals("Family Name: ")
                     || requestString.equals("User Name: ")) {
-                for(int i = 0; i < string.length() - 1; i++)
-                    if (!Character.isLetter(string.charAt(i))
-                            && !Character.isDigit(string.charAt(i))) {
-                        System.out.println("Try again:\n");
-                        continue WHILE;
-                    }
-                break;
+                if (string.length() == 0) {
+                    System.out.println("\nTry again:");
+                        continue;
+                }
+                else {
+                    for(int i = 0; i < string.length() - 1; i++)
+                        if (!Character.isLetter(string.charAt(i))
+                                && !Character.isDigit(string.charAt(i))) {
+                            System.out.println("Try again:\n");
+                            continue WHILE;
+                        }
+                    break;
+                }
             }
             else 
                 if (requestString.equals("Number of Pages: ")
