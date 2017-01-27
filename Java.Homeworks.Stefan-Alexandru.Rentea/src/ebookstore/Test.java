@@ -204,9 +204,9 @@ public class Test {
         }
         
         if (bool)
-            System.out.println("Testing adding an Author Object to the listOfAuthors was a success!");
+            System.out.println("Testing the EBook Class was a success!");
         else
-            System.out.println("Testing adding an Author Object to the listOfAuthors NOT a success!");
+            System.out.println("Testing the EBook Class was NOT a success!");
         
     }
  
