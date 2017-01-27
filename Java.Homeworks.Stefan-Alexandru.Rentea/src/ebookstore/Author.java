@@ -19,6 +19,13 @@ class Author {
         this.familyName = new LegalValue().getLegalValue("Family Name: ");
     }
     
+    // for Test Class
+    public Author(int id, String firstName, String familyName) {
+        this.id = id;
+        this.firstName = firstName;
+        this.familyName = familyName;
+    }
+    
     // used for anonymous authors
     public Author(String string) {
         this.id = count++;

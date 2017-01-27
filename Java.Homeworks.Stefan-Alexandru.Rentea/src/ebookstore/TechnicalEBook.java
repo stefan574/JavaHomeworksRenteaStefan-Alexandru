@@ -16,6 +16,12 @@ public class TechnicalEBook extends EBook {
                 .getLegalValue("Subject: ").toUpperCase());
     }
     
+    // for Test Class
+    public TechnicalEBook(String isbn, String title, int numberOfPages, double price, double rating, TechnicalType subject) {
+        super(isbn, title, numberOfPages, price, rating);
+        this.subject = subject;
+    }
+    
     @Override
     public String getSpecialField() {
         return "Subject: " + subject;

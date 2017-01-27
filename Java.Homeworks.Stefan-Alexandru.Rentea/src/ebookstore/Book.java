@@ -11,7 +11,6 @@ public interface Book {
     void printListOfAuthors();
     void addRating(double rating);
     String getIsbnValue();
-    void addAuthor();
     String getSpecialField();
     
 }

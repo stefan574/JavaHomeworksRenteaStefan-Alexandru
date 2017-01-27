@@ -17,6 +17,7 @@ public class NumericExpression {
     /*
      * Evaluates numerical expressions.
      */
+    @SuppressWarnings("unchecked")
     double solveNumericExpression(List list) {
         curlyOpened = 0;
         notFirstElement = 0;

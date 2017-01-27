@@ -33,6 +33,10 @@ class EBookStoreSwitch {
                 System.out.println();
                 break;
             case 7 :
+                Test.test();
+                System.out.println();
+                break;
+            case 8 :
                 System.exit(0);
                 //break; - not necessary
             default :

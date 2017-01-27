@@ -19,6 +19,7 @@ public class Authors {
     
     int chooseFromListOfAuthors() {
         System.out.println();
+        
         for (int i = 0; i < listOfAuthors.size(); i++)
             if (listOfAuthors.get(i).getFirstName().contains("nonymous")
                 && listOfAuthors.get(i).getFamilyName() == null)
@@ -28,6 +29,7 @@ public class Authors {
                 System.out.println(i + 1 + ": " + listOfAuthors.get(i).getFirstName()
                         + listOfAuthors.get(i).getFamilyName()
                         + ", id: " + listOfAuthors.get(i).getId());
+        
         int choice = new LegalValue().getLegalValue(listOfAuthors.size());
         return choice - 1; 
     }

@@ -33,7 +33,20 @@ abstract class EBook implements Book {
         addAuthor();
     }
     
-    private String getRating() {
+    // for Test Class
+    public EBook(String isbn, String title, int numberOfPages, double price, double rating) {
+        this.isbn = isbn;
+        this.title = title;
+        this.numberOfPages = numberOfPages;
+        this.price = price;
+        this.rating = rating;
+        this.listOfRatings = new ArrayList<>();
+        this.listOfRatings.add(rating);
+        this.listOfAuthors = new ArrayList<>();
+    }
+    
+    // made public to use it in Test Class
+    public String getRating() {
         if (rating == 0)
             return "No rating!";
         else
@@ -75,8 +88,7 @@ abstract class EBook implements Book {
                 + (int)(Math.random()*899)+100;
     }
     
-    @Override
-    public final void addAuthor() {
+    private void addAuthor() {
         int firstAuthor, choice;
         firstAuthor = 0;
         while (true) {
@@ -137,21 +149,28 @@ abstract class EBook implements Book {
     public String getTitle() {
         return title;
     }
-
+    
     public int getNumberOfPages() {
         return numberOfPages;
     }
+    
+    // for Test Class
+    public double getPrice() {
+        return price;
+    }
 
+    // for Test Class
+    public String getIsbn() {
+        return isbn;
+    }
+
+    // for Test Class
+    public List<Double> getListOfRatings() {
+        return listOfRatings;
+    }
+    
     public List<Author> getListOfAuthors() {
         return listOfAuthors;
-    }
-    
-    public String getIsbn() {
-        return this.isbn;
-    }
-    
-    public double getPrice() {
-        return this.price;
     }
     
     @Override
