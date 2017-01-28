@@ -93,7 +93,7 @@ public class LegalValue {
                                     }
                                     else 
                                         if (requestString.equalsIgnoreCase("Rating: ")) {
-                                                if (string.matches("0.5|1|1.5|2|2.5|3|3.5|4|4.5|5"))
+                                                if (string.matches("0.5|1|1.0|1.5|2|2.0|2.5|3|3.0|3.5|4|4.0|4.5|5|5.0"))
                                                     break;
                                         }
                                         else

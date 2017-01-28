@@ -88,23 +88,26 @@ class EBooks {
     }
     
     void modifyDescriptionOfRating() {
-        if (!mapOfRatings.isEmpty()) {
-            printListOfEBooks();
-            if (!listOfEBooks.isEmpty()) {
-                int choice = new LegalValue().getLegalValue(listOfEBooks.size()) - 1;
-                if (mapOfRatings.containsKey(listOfEBooks.get(choice))) {
-                    int j = 1;
-                    for (Rating rating : mapOfRatings.get(listOfEBooks.get(choice)))
-                            System.out.println("\nRating_" + j++ + ": " + rating.printRating());
-                    j = new LegalValue().getLegalValue(j--) - 1;
-                    mapOfRatings.get(listOfEBooks.get(choice)).get(j).setDescription();
+        if (!listOfEBooks.isEmpty())
+            if (!mapOfRatings.isEmpty()) {
+                printListOfEBooks();
+                if (!listOfEBooks.isEmpty()) {
+                    int choice = new LegalValue().getLegalValue(listOfEBooks.size()) - 1;
+                    if (mapOfRatings.containsKey(listOfEBooks.get(choice))) {
+                        int j = 1;
+                        for (Rating rating : mapOfRatings.get(listOfEBooks.get(choice)))
+                                System.out.println("\nRating_" + j++ + ": " + rating.printRating());
+                        j = new LegalValue().getLegalValue(j--) - 1;
+                        mapOfRatings.get(listOfEBooks.get(choice)).get(j).setDescription();
+                    }
+                    else
+                        System.out.println("\nList of Ratings for this EBook is Empty!");
                 }
-                else
-                    System.out.println("\nList of Ratings for this EBook is Empty!");
             }
-        }
-        else 
-            System.out.println("\nList of Ratings is Empty!");
+            else 
+                System.out.println("\nList of Ratings is Empty!");
+        else
+            System.out.println("\nList of EBooks is Empty!");
     }
     
     private boolean verifyExistenceOfEBook(EBook eBook) {
