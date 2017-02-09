@@ -189,7 +189,7 @@ public class CnpValidater {
         int age = 0;
         Calendar now = Calendar.getInstance();
         if ((Integer.parseInt(syymmdd.substring(3, 5)) > (now.get(Calendar.MONTH) + 1))
-                || ((Integer.parseInt(syymmdd.substring(3, 5)) > (now.get(Calendar.MONTH) + 1))
+                || ((Integer.parseInt(syymmdd.substring(3, 5)) == (now.get(Calendar.MONTH) + 1))
                 && (Integer.parseInt(syymmdd.substring(3, 5)) >= (now.get(Calendar.DAY_OF_MONTH)))))
             age++;
         switch (syymmdd.charAt(0)) {
