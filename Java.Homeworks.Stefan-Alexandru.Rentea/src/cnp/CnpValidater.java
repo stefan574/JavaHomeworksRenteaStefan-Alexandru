@@ -11,10 +11,10 @@ import java.util.Map;
  * @author Stefan-Alexandru
  */
 public class CnpValidater {
-        
+       
     private boolean valid;
     private static final Map<String, String> COUNTIES;
-    StringBuilder error;
+    private final StringBuilder error;
     
     static {
         COUNTIES = new HashMap<>();
