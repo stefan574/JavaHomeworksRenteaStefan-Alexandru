@@ -69,7 +69,7 @@ public class CnpValidater {
     }
     
     /**
-     * The constructor for the ValidateCnp Class.
+     * Constructor for the ValidateCnp Class
      */
     public CnpValidater() {
         this.valid = true;
@@ -207,7 +207,7 @@ public class CnpValidater {
     }
     
     /**
-     * Displays data based on the personal numerical code
+     * Displays data based on the personal numerical code.
      * 
      * @param cnp - represents the personal numerical code 
      */

@@ -50,7 +50,7 @@ public class CnpDetector {
     }
     
     /**
-     * Simulates user input
+     * Simulates user input.
      */
     void readInput() {
         String parameters = "1920229351141 3861126024253";
@@ -61,7 +61,7 @@ public class CnpDetector {
     }
     
     /**
-     * Adds to the list of personal numerical codes
+     * Adds to the list of personal numerical codes.
      * 
      * @param line represents a line of user input
      */
