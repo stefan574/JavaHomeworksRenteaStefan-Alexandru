@@ -17,6 +17,11 @@ public class Authors {
         listOfAuthors = new ArrayList<>();
     }
     
+    /**
+     * Returns the position of an author from the list of authors
+     * 
+     * @return the user choice of an existing author
+     */
     int chooseFromListOfAuthors() {
         System.out.println();
         

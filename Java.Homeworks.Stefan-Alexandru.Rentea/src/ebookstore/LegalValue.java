@@ -47,7 +47,7 @@ public class LegalValue {
                     for(int i = 0; i < string.length() - 1; i++)
                         if (!Character.isLetter(string.charAt(i))
                                 && !Character.isDigit(string.charAt(i))) {
-                            System.out.println("Try again:\n");
+                            System.out.println("\nTry again!");
                             continue WHILE;
                         }
                     break;

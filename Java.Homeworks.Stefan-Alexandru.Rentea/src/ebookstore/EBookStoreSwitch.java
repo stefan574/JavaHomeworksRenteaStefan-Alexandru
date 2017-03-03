@@ -8,6 +8,12 @@ package ebookstore;
  */
 class EBookStoreSwitch {
     
+    /**
+     * The switch method corresponding to the eBookStoreMenu method
+     * 
+     * @param eBookStore contains the list of ebooks
+     * @param choice is the menu choice of the user
+     */
     static void eBookStoreSwitch(EBookStore eBookStore, int choice) {
         switch(choice) {
             case 1 :
@@ -37,6 +43,14 @@ class EBookStoreSwitch {
                 System.out.println();
                 break;
             case 8 :
+                eBookStore.getEBooks().addAuthorToEbook();
+                System.out.println();
+                break;
+            case 9 :
+                eBookStore.getEBooks().addEBookToAuthor();
+                System.out.println();
+                break;
+            case 10 :
                 System.exit(0);
                 //break; - not necessary
             default :

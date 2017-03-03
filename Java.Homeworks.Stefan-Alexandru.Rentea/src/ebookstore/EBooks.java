@@ -16,15 +16,30 @@ class EBooks {
     private final List<EBook> listOfEBooks;
     private final Map<EBook, List<Rating>> mapOfRatings;
     
+    /**
+     * Default Constructor for the EBooks class
+     */
     public EBooks() {
         this.listOfEBooks = new ArrayList<>();
         this.mapOfRatings = new HashMap<>();
     }
     
+    /**
+     * Getter for the listOfEBooks field
+     * 
+     * @return the listOfEBooks field
+     */
     public List<EBook> getListOfEBooks() {
         return listOfEBooks;
     }
     
+    /**
+     * Adds an ebook to the list of ebooks and returns true if the ebook
+     * was added, or false if the ebook already exists.
+     * 
+     * @param eBook is the ebook to be added
+     * @return true or false, depending on the result of the operation
+     */
     boolean addEBook(EBook eBook) {
         if (verifyExistenceOfEBook(eBook))
             return false;
@@ -34,6 +49,9 @@ class EBooks {
         }
     }
     
+    /**
+     * Deletes an ebook from the list of ebooks
+     */
     void deleteEBook() {
         printListOfEBooks();
         if (!listOfEBooks.isEmpty()) {
@@ -43,33 +61,55 @@ class EBooks {
         }
     }
     
+    /**
+     * Adds a rating to a specific ebook
+     */
     void addRatingToEBook() {
         printListOfEBooks();
         if (!listOfEBooks.isEmpty()) {
             int choice = new LegalValue().getLegalValue(listOfEBooks.size());
             Rating rating = new Rating();
-            listOfEBooks.get(choice - 1).addRating(rating.getRating());
-            if (mapOfRatings.containsKey(listOfEBooks.get(choice - 1)))
-                mapOfRatings.get(listOfEBooks.get(choice - 1)).add(rating);
+            if (mapOfRatings.containsKey(listOfEBooks.get(choice - 1))) {
+                boolean ok = true;
+                for (Rating _rating : mapOfRatings.get(listOfEBooks.get(choice - 1)))
+                    if (_rating.getUserId() == rating.getUserId()) {
+                        System.out.println("\nCannot Add the New Rating, User"
+                                + " Already Rated this EBook!");
+                        ok = false;
+                        break;
+                    }
+                if (ok) {
+                    mapOfRatings.get(listOfEBooks.get(choice - 1)).add(rating);
+                    listOfEBooks.get(choice - 1).addRating(rating.getRating());
+                    System.out.println("\nRating Added!");
+                }
+            }
             else {
                 List<Rating> list = new ArrayList<>();
                 list.add(rating);
                 mapOfRatings.put(listOfEBooks.get(choice - 1), list);
+                listOfEBooks.get(choice - 1).addRating(rating.getRating());
+                System.out.println("\nRating Added!");
             }
-            System.out.println("\nRating Added!");
         }
     }
-    
-   void printListOfEBooks() {
-       System.out.println();
-       if (!listOfEBooks.isEmpty())
+   
+    /**
+     * Prints the list of ebooks with little details
+     */
+    void printListOfEBooks() {
+        System.out.println();
+        if (!listOfEBooks.isEmpty())
             for (int i = 0; i < listOfEBooks.size(); i++)
                 System.out.println(i + 1 + ": "
                         + listOfEBooks.get(i).printEBook());
         else 
-            System.out.println("List of EBooks is Empty!");
-   }
+            System.out.println("The List of EBooks is Empty!");
+    }
     
+    /**
+     * Prints the list of ebooks with all details
+     */
     void printDetailedListOfEBooks() {
         System.out.println();
         if (!listOfEBooks.isEmpty())
@@ -84,9 +124,12 @@ class EBooks {
                 System.out.println();
             }
         else 
-            System.out.println("List of EBooks is Empty!\n");
+            System.out.println("The List of EBooks is Empty!\n");
     }
     
+    /**
+     * Modifies a description of a rating for a specific ebook
+     */
     void modifyDescriptionOfRating() {
         if (!listOfEBooks.isEmpty())
             if (!mapOfRatings.isEmpty()) {
@@ -101,15 +144,23 @@ class EBooks {
                         mapOfRatings.get(listOfEBooks.get(choice)).get(j).setDescription();
                     }
                     else
-                        System.out.println("\nList of Ratings for this EBook is Empty!");
+                        System.out.println("\nThe List of Ratings for this EBook is Empty!");
                 }
             }
             else 
-                System.out.println("\nList of Ratings is Empty!");
+                System.out.println("\nThe List of Ratings is Empty!");
         else
-            System.out.println("\nList of EBooks is Empty!");
+            System.out.println("\nThe List of EBooks is Empty!");
     }
     
+    /**
+     * Verifies if an ebook already exists
+     * 
+     * @param eBook is the ebook which will be tested for existence in the
+     * list of ebooks
+     * @return returns true or false, depending on the existence of the 
+     * @param eBook in the list of ebooks
+     */
     private boolean verifyExistenceOfEBook(EBook eBook) {
         
         int numberOfIdenticalAuthors = 0;
@@ -130,4 +181,29 @@ class EBooks {
         return numberOfIdenticalAuthors == eBook.getListOfAuthors().size();
     }
     
+    void addAuthorToEbook() {
+        printListOfEBooks();
+        if (!listOfEBooks.isEmpty()) {
+            int choice = new LegalValue().getLegalValue(listOfEBooks.size());
+            listOfEBooks.get(choice - 1).addAuthor();
+        }
+    }
+    
+    void addEBookToAuthor() {
+        if (!Authors.listOfAuthors.isEmpty()) {
+            printListOfEBooks();
+            if (!listOfEBooks.isEmpty()) {
+                int choiceEBook = new LegalValue().getLegalValue(listOfEBooks.size());
+                int choiceAuthor = new Authors().chooseFromListOfAuthors();
+                if (!listOfEBooks.get(choiceEBook - 1).checkExistenceOfAuthor(Authors.listOfAuthors.get(choiceAuthor))) {
+                    listOfEBooks.get(choiceEBook - 1).getListOfAuthors().add(Authors.listOfAuthors.get(choiceAuthor));
+                    System.out.println("\nEBook Added to Author!");
+                }
+                else
+                    System.out.println("\nConnot Add EBook to Author, EBook Already Exists!");
+            }
+        }
+        else
+            System.out.println("\nThe List of Authors is Empty!");
+    }
 }
