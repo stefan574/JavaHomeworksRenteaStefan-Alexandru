@@ -1,13 +1,15 @@
 /*
  * EBooksSql Class
  */
-package ebookstore;
+package ebookstoreDB;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Stefan-Alexandru Rentea
@@ -145,43 +147,7 @@ public class EBooksSql {
         }
     }
     
-    /**
-     * DELETE query for the EBOOKS table
-     * 
-     * @param ebook is the object that will be inserted in the table
-     */
-    static void delete(EBook ebook) {
-        Connection connection = null;
-        Statement statement = null;
-        
-        try {
-            connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            statement = connection.createStatement();
-            statement.execute("DELETE FROM ROOT.EBOOKS WHERE ISBN = '" + ebook.getIsbn() + "'");
-            System.out.println("\nEBook Deleted from Database!");
-        }
-        catch (SQLException e) {
-            System.out.println(e);
-        }
-        finally {
-            if (statement != null)
-                try {
-                    statement.close();
-                }
-                catch (SQLException ex) {
-                    System.out.println(ex);
-                }
-            if (connection != null)
-                try {
-                    connection.close();
-                }
-                catch (SQLException ex) {
-                    System.out.println(ex);
-                }
-        }
-    }
-    
-    static void select() {
+    static void selectSorted() {
         Connection connection = null;
         Statement statement = null;
         ResultSet resultSet = null;
@@ -209,17 +175,88 @@ public class EBooksSql {
         try {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM ROOT.EBOOKS ORDER BY " + field);
+            resultSet = statement.executeQuery("select EBOOKS.ISBN, EBOOKS.TITLE, "
+                    + "EBOOKS.NUMBER_OF_PAGES, EBOOKS.PRICE, EBOOKS.RATING, "
+                    + "TYPES.NAME as TYPE from EBOOKS join TYPES "
+                    + "on EBOOKS.TYPE = TYPES.ID ORDER BY " + field);
             boolean resultSetHasRows = resultSet.next();
-            if (resultSetHasRows)
+            if (resultSetHasRows) {
+                int i = 0;
                 do {
-                    System.out.println(resultSet.getString(1) + " "
-                            + resultSet.getString(2) + " "
-                            + resultSet.getInt(3) + " "
-                            + resultSet.getDouble(4) + " "
-                            + resultSet.getDouble(5) + " "
-                            + resultSet.getInt(6) + "\n");
+                    System.out.println("EBook_" + (++i) + ":\n"
+                            + "\tIsbn: " + resultSet.getString(1) + "\n"
+                            + "\tTitle: " + resultSet.getString(2) + "\n"
+                            + "\tNumber of Pages: " + resultSet.getInt(3) + "\n"
+                            + "\tPrice: " + resultSet.getDouble(4) + "\n"
+                            + "\tRating: " + resultSet.getDouble(5) + "\n"
+                            + "\tType: " + resultSet.getString(6));
+                    AuthorsSql.select(resultSet.getString(1));
+                    RatingsSql.select(resultSet.getString(1));
                 } while(resultSet.next());
+            }
+            else
+                System.out.println("EBOOKS Table is Empty!");
+        }
+        catch (SQLException e) {
+            System.out.println(e);
+        }
+        finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                }
+                catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+            }
+            if (statement != null)
+                try {
+                    statement.close();
+                }
+                catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+            if (connection != null)
+                try {
+                    connection.close();
+                }
+                catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+        }
+    }
+    
+    static void delete() {
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        
+        System.out.println();
+        
+        try {
+            connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM ROOT.EBOOKS");
+            boolean resultSetHasRows = resultSet.next();
+            if (resultSetHasRows) {
+                List<String> rows = new ArrayList<>();
+                int i = 0;
+                do {
+                    rows.add(resultSet.getString(1));
+                    System.out.println(++i + ": " + resultSet.getString(1)
+                            + ", " + resultSet.getString(2));
+                } while(resultSet.next());
+                
+                int choice = new LegalValue().getLegalValue(i);
+                
+                statement.execute("DELETE FROM ROOT.EBOOKS WHERE ISBN = '" + rows.get(choice - 1) + "'");
+                statement.execute("DELETE FROM ROOT.AUTHORS WHERE ISBN = '" + rows.get(choice - 1) + "'");
+                statement.execute("DELETE FROM ROOT.RATINGS WHERE ISBN = '" + rows.get(choice - 1) + "'");
+                
+                RatingsSql.adjustRating(rows.get(choice - 1));
+                
+                System.out.println("EBook Deleted!");
+            }
             else
                 System.out.println("EBOOKS Table is Empty!");
         }

@@ -1,13 +1,15 @@
 /*
  * RatingsSql Class
  */
-package ebookstore;
+package ebookstoreDB;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Stefan-Alexandru Rentea
@@ -123,20 +125,53 @@ public class RatingsSql {
      * @param isbn is the Isbn of an ebook and part of the pk in the table
      * @param rating is the object that will be inserted in the table
      */
-    static void delete(String isbn, Rating rating) {
+    static void delete() {
         Connection connection = null;
         Statement statement = null;
+        ResultSet resultSet = null;
         
         try {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
             statement = connection.createStatement();
-            statement.execute("DELETE FROM ROOT.RATINGS WHERE ISBN = '" + isbn + "' AND USER_ID = " + rating.getUserId());
-            System.out.println("\nRating Deleted from Database!");
+            resultSet = statement.executeQuery("SELECT * FROM ROOT.RATINGS");
+            boolean resultSetHasRows = resultSet.next();
+            if (resultSetHasRows) {
+                List<String> rows = new ArrayList<>();
+                int i = 0;
+                do {
+                    if (!rows.contains(resultSet.getString(1) + resultSet.getInt(2))) {
+                        rows.add(resultSet.getString(1) + resultSet.getInt(2));
+                        System.out.println(++i + ": " + resultSet.getString(1)
+                                + ", description: " + resultSet.getString(3)
+                                + ", rating: " + resultSet.getString(4));
+                    }
+                } while(resultSet.next());
+
+                int choice = new LegalValue().getLegalValue(i);
+
+                statement.execute("DELETE FROM ROOT.RATINGS WHERE ISBN = '"
+                        + rows.get(choice - 1).substring(0, 15)
+                        + "' AND USER_ID = " + rows.get(choice - 1).substring(15));
+
+                adjustRating(rows.get(choice - 1).substring(0, 15));
+                
+                System.out.println("Rating Deleted!");
+            }
+            else
+                System.out.println("Ratings Table is Empty!");
         }
         catch (SQLException e) {
             System.out.println(e);
         }
         finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                }
+                catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+            }
             if (statement != null)
                 try {
                     statement.close();
@@ -154,7 +189,7 @@ public class RatingsSql {
         }
     }
     
-    static void select() {
+    static void select(String isbn) {
         Connection connection = null;
         Statement statement = null;
         ResultSet resultSet = null;
@@ -162,15 +197,28 @@ public class RatingsSql {
         try {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM ROOT.RATINGS");
+            if (isbn == null)
+                resultSet = statement.executeQuery("SELECT * FROM ROOT.RATINGS");
+            else
+                resultSet = statement.executeQuery("SELECT * FROM ROOT.RATINGS WHERE ISBN = '" + isbn + "'");
             boolean resultSetHasRows = resultSet.next();
-            if (resultSetHasRows)
+            if (resultSetHasRows) {
+                int i = 0;
                 do {
-                    System.out.println(resultSet.getString(1) + " "
-                            + resultSet.getInt(2) + " "
-                            + resultSet.getString(3) + " "
-                            + resultSet.getDouble(4) + "\n");
+                    if (isbn == null)
+                        System.out.println("Rating_" + (++i) + ":\n"
+                                + "\tIsbn: " + resultSet.getString(1) + "\n"
+                                + "\tUserId: " + resultSet.getInt(2) + "\n"
+                                + "\tDescription: " + resultSet.getString(3) + "\n"
+                                + "\tRating: " + resultSet.getDouble(4));
+                    else 
+                        System.out.println("Rating_" + (++i) + ":\n"
+                                + "\tUserId: " + resultSet.getInt(2) + "\n"
+                                + "\tDescription: " + resultSet.getString(3) + "\n"
+                                + "\tRating: " + resultSet.getDouble(4));
                 } while(resultSet.next());
+                System.out.println();
+            }
             else
                 System.out.println("RATINGS Table is Empty!");
         }
@@ -201,6 +249,60 @@ public class RatingsSql {
                     System.out.println(ex);
                 }
         }
+    }
+    
+    static boolean adjustRating(String isbn) {
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        
+        try {
+            connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM ROOT.RATINGS WHERE ISBN = '" + isbn + "'");
+            boolean resultSetHasRows = resultSet.next();
+            if (resultSetHasRows) {
+                List<Double> rows = new ArrayList<>();
+                do {
+                    rows.add(resultSet.getDouble(4));
+                } while(resultSet.next());
+                
+                double newValue = 0;
+                newValue = rows.stream().map((_double) -> _double)
+                        .reduce(newValue, (accumulator, _item) -> accumulator + _item);
+                newValue = new DoublePrecision().doPrecisionRating(new DoublePrecision().doPrecision(newValue/rows.size(), 2));
+                
+                statement.execute("UPDATE ROOT.EBOOKS SET \"RATING\" = " + newValue + " WHERE ISBN = '" + isbn + "'");
+            }
+        }
+        catch (SQLException e) {
+            System.out.println(e);
+        }
+        finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                }
+                catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+            }
+            if (statement != null)
+                try {
+                    statement.close();
+                }
+                catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+            if (connection != null)
+                try {
+                    connection.close();
+                }
+                catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+        }
+        return false;
     }
     
 }
