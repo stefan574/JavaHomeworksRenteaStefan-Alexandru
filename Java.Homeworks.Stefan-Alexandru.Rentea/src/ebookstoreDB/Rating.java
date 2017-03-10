@@ -3,28 +3,20 @@
  */
 package ebookstoreDB;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @author Stefan-Alexandru Rentea
  */
 public class Rating {
     
-    private final static List<String> USERS;
     private final double rating;
-    private final int userId;
     private String description;
-    
-    static {
-        USERS = new ArrayList<>();
-    }
+    private final String userName;
     
     /**
      * Default Constructor for the Rating class
      */
     Rating() {
-        this.userId = getValidUserId();
+        this.userName = new LegalValue().getLegalValue("User Name: ");
         this.rating = Double.parseDouble(new LegalValue().getLegalValue("Rating: "));
         this.description = new LegalValue().getLegalValue("Description: ");
     }
@@ -33,12 +25,12 @@ public class Rating {
      * Parameterized Constructor for the Rating class
      * 
      * @param rating represents the value for the rating field
-     * @param userId represents the value for the userId field
+     * @param userName represents the value for the userName field
      * @param description represents the value for the description field
      */
-    public Rating(double rating, int userId, String description) {
+    public Rating(double rating, String userName, String description) {
         this.rating = rating;
-        this.userId = userId;
+        this.userName = userName;
         this.description = description;
     }
     
@@ -57,21 +49,7 @@ public class Rating {
     void setDescription(String description) {
         this.description = description;
     }
-    
-    /**
-     * Returns a valid userId for the userId field
-     * 
-     * @return valid userId
-     */
-    private int getValidUserId() {
-        String userName = new LegalValue().getLegalValue("User Name: ");
         
-        if (!USERS.contains(userName))
-            USERS.add(userName);
-        
-        return USERS.indexOf(userName);
-    }
-    
     /**
      * Returns the fields of the Rating Object in a String
      * 
@@ -79,7 +57,7 @@ public class Rating {
      */
     String printRating() {
             return rating
-                + "\nUser: " + USERS.get(userId)
+                + "\nUser: " + userName
                 + "\nDescription: " + description;
     }
     
@@ -102,12 +80,12 @@ public class Rating {
     }
 
     /**
-     * Getter for the userId field
+     * Getter for the userName field
      * 
-     * @return userId field
+     * @return userName field
      */
-    public int getUserId() {
-        return userId;
+    public String getUserName() {
+        return userName;
     }
     
 }

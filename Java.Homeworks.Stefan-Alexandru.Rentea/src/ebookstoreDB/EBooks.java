@@ -72,7 +72,7 @@ class EBooks {
             if (mapOfRatings.containsKey(listOfEBooks.get(choice - 1))) {
                 boolean ok = true;
                 for (Rating _rating : mapOfRatings.get(listOfEBooks.get(choice - 1)))
-                    if (_rating.getUserId() == rating.getUserId()) {
+                    if (_rating.getUserName().equalsIgnoreCase(rating.getUserName())) {
                         System.out.println("\nCannot Add the New Rating, User"
                                 + " Already Rated this EBook!");
                         ok = false;

@@ -78,7 +78,15 @@ public class DataBase {
                             + "FIRST_NAME VARCHAR(32) NOT NULL, "
                             + "LAST_NAME VARCHAR(32) NOT NULL, "
                             + "PRIMARY KEY (ISBN, ID))");
-                    
+                    statement.execute("INSERT INTO ROOT.AUTHORS ("
+                            + "ISBN, ID, FIRST_NAME, LAST_NAME) "
+                            + "VALUES ('321-54-54321-54', 1, 'Mihail', 'Sadoveanu')");
+                    statement.execute("INSERT INTO ROOT.AUTHORS ("
+                            + "ISBN, ID, FIRST_NAME, LAST_NAME) "
+                            + "VALUES ('999-12-12345-12', 2, 'Paul', 'Deitel')");
+                    statement.execute("INSERT INTO ROOT.AUTHORS ("
+                            + "ISBN, ID, FIRST_NAME, LAST_NAME) "
+                            + "VALUES ('999-12-12345-12', 3, 'Harvey', 'Deitel')");
                     break;
                 case "EBOOKS" :
                     statement.execute("CREATE TABLE EBOOKS ("
@@ -89,14 +97,41 @@ public class DataBase {
                             + "RATING DOUBLE NOT NULL, "
                             + "TYPE INTEGER NOT NULL, "
                             + "PRIMARY KEY (ISBN))");
+                    statement.execute("INSERT INTO ROOT.EBOOKS (ISBN, TITLE, "
+                            + "NUMBER_OF_PAGES, PRICE, RATING, \"TYPE\")"
+                            + " VALUES ('123-45-12345-12', 'Fratii Jderi', 792, 47.5, 4.0, 1)");
+                    statement.execute("INSERT INTO ROOT.EBOOKS (ISBN, TITLE, "
+                            + "NUMBER_OF_PAGES, PRICE, RATING, \"TYPE\")"
+                            + " VALUES ('321-54-54321-54', 'Baltagul', 210, 22.0, 5.0, 1)");
+                    statement.execute("INSERT INTO ROOT.EBOOKS (ISBN, TITLE, "
+                            + "NUMBER_OF_PAGES, PRICE, RATING, \"TYPE\")"
+                            + " VALUES ('999-12-12345-12', 'Java, How to program', 1535, 100.0, 2.0, 2)");
                     break;
                 case "RATINGS" :
                     statement.execute("CREATE TABLE RATINGS ("
                             + "ISBN VARCHAR(16) NOT NULL, "
-                            + "USER_ID INTEGER NOT NULL, "
+                            + "USER_NAME VARCHAR(32) NOT NULL, "
                             + "DESCRIPTION VARCHAR(256) NOT NULL, "
                             + "RATING DOUBLE NOT NULL, "
-                            + "PRIMARY KEY (ISBN, USER_ID))");
+                            + "PRIMARY KEY (ISBN, USER_NAME))");
+                    statement.execute("INSERT INTO ROOT.RATINGS (ISBN, "
+                            + "USER_NAME, DESCRIPTION, RATING) "
+                            + "	VALUES ('123-45-12345-12', 'User1', 'E buna', 5.0)");
+                    statement.execute("INSERT INTO ROOT.RATINGS (ISBN, "
+                            + "USER_NAME, DESCRIPTION, RATING) "
+                            + "	VALUES ('123-45-12345-12', 'User2', 'E in regula', 3.0)");
+                    statement.execute("INSERT INTO ROOT.RATINGS (ISBN, "
+                            + "USER_NAME, DESCRIPTION, RATING) "
+                            + "	VALUES ('321-54-54321-54', 'User3', 'Cel mai bun roman', 5.0)");
+                    statement.execute("INSERT INTO ROOT.RATINGS (ISBN, "
+                            + "USER_NAME, DESCRIPTION, RATING) "
+                            + "	VALUES ('999-12-12345-12', 'User1', 'Groaznic', 1.0)");
+                    statement.execute("INSERT INTO ROOT.RATINGS (ISBN, "
+                            + "USER_NAME, DESCRIPTION, RATING) "
+                            + "	VALUES ('999-12-12345-12', 'User2', 'N-am inteles nimic', 2.0)");
+                    statement.execute("INSERT INTO ROOT.RATINGS (ISBN, "
+                            + "USER_NAME, DESCRIPTION, RATING) "
+                            + "	VALUES ('999-12-12345-12', 'User4', 'Cat de cat ok', 3.0)");
                     break;
                 case "TYPES" :
                     statement.execute("CREATE TABLE TYPES ("

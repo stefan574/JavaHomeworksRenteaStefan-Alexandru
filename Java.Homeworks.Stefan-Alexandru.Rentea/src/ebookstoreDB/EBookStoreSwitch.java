@@ -31,11 +31,11 @@ class EBookStoreSwitch {
                 //eBookStore.getEBooks().printDetailedListOfEBooks();
                 break;
             case 5 :
-                eBookStore.getEBooks().addRatingToEBook();
+                //eBookStore.getEBooks().addRatingToEBook();
                 System.out.println();
                 break;
             case 6 :
-                eBookStore.getEBooks().modifyDescriptionOfRating();
+                //eBookStore.getEBooks().modifyDescriptionOfRating();
                 System.out.println();
                 break;
             case 7 :

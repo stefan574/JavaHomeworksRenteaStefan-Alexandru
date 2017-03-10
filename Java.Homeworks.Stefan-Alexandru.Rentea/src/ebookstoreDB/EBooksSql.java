@@ -253,8 +253,6 @@ public class EBooksSql {
                 statement.execute("DELETE FROM ROOT.AUTHORS WHERE ISBN = '" + rows.get(choice - 1) + "'");
                 statement.execute("DELETE FROM ROOT.RATINGS WHERE ISBN = '" + rows.get(choice - 1) + "'");
                 
-                RatingsSql.adjustRating(rows.get(choice - 1));
-                
                 System.out.println("EBook Deleted!");
             }
             else
@@ -272,6 +270,64 @@ public class EBooksSql {
                     System.out.println(ex);
                 }
             }
+            if (statement != null)
+                try {
+                    statement.close();
+                }
+                catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+            if (connection != null)
+                try {
+                    connection.close();
+                }
+                catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+        }
+    }
+    
+    static void addRatingToEBook() {
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        
+        try {
+            connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM EBOOKS");
+            boolean resultSetHasRows = resultSet.next();
+            if (resultSetHasRows) {
+                List<String> rows = new ArrayList<>();
+                int i = 0;
+                do {
+                    System.out.println((++i) + ": " + resultSet.getString(1));
+                    rows.add(resultSet.getString(1));
+                } while(resultSet.next());
+                
+                int choice = new LegalValue().getLegalValue(i);
+                Rating rating = new Rating();
+                if (RatingsSql.verifyExistenceOfUserRating(rows.get(choice - 1), rating.getUserName())) {
+                    RatingsSql.insert(rows.get(choice - 1), rating);
+                    RatingsSql.adjustRating(rows.get(choice - 1));
+                }
+                else
+                    System.out.println("User already rated this EBook!");
+            }
+            else
+                System.out.println("EBOOKS Table is Empty!");
+        }
+        catch (SQLException e) {
+            System.out.println(e);
+        }
+        finally {
+            if (resultSet != null)
+                try {
+                    resultSet.close();
+                }
+                catch (SQLException ex) {
+                    System.out.println(ex);
+                }
             if (statement != null)
                 try {
                     statement.close();

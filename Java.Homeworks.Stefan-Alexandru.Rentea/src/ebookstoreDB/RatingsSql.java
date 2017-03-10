@@ -34,9 +34,9 @@ public class RatingsSql {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
             statement = connection.createStatement();
             statement.execute("INSERT INTO ROOT.RATINGS "
-                    + "(ISBN, USER_ID, DESCRIPTION, RATING)"
-                    + " VALUES ('" + isbn + "', " + rating.getUserId()
-                    + ", '" + rating.getDescription() + "', " + rating.getRating()
+                    + "(ISBN, USER_NAME, DESCRIPTION, RATING)"
+                    + " VALUES ('" + isbn + "', '" + rating.getUserName()
+                    + "', '" + rating.getDescription() + "', " + rating.getRating()
                     + ")");
             System.out.println("\nRating added to database!");
         }
@@ -67,7 +67,7 @@ public class RatingsSql {
      * @param isbn is the Isbn of an ebook and part of the pk in the table
      * @param rating is the object that will be inserted in the table
      */
-    static void update(String isbn, Rating rating) {
+    static void update(String isbn, String userName) {
         Connection connection = null;
         Statement statement = null;
         
@@ -92,10 +92,12 @@ public class RatingsSql {
         try {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
             statement = connection.createStatement();
-            if (choice == 1)
-                statement.execute("UPDATE ROOT.RATINGS SET \"" + field + "\" = " + newValue + " WHERE ISBN = '" + isbn + "' AND USER_ID = " + rating.getUserId());
+            if (choice == 1) {
+                statement.execute("UPDATE ROOT.RATINGS SET \"" + field + "\" = " + newValue + " WHERE ISBN = '" + isbn + "' AND USER_NAME = '" + userName + "'");
+                adjustRating(isbn);
+            }
             else
-                statement.execute("UPDATE ROOT.RATINGS SET \"" + field + "\" = '" + newValue + "' WHERE ISBN = '" + isbn + "' AND USER_ID = " + rating.getUserId());
+                statement.execute("UPDATE ROOT.RATINGS SET \"" + field + "\" = '" + newValue + "' WHERE ISBN = '" + isbn + "' AND USER_NAME = '" + userName + "'");
             System.out.println("\nField Modified!");
         }
         catch (SQLException e) {
@@ -139,8 +141,8 @@ public class RatingsSql {
                 List<String> rows = new ArrayList<>();
                 int i = 0;
                 do {
-                    if (!rows.contains(resultSet.getString(1) + resultSet.getInt(2))) {
-                        rows.add(resultSet.getString(1) + resultSet.getInt(2));
+                    if (!rows.contains(resultSet.getString(1) + resultSet.getString(2))) {
+                        rows.add(resultSet.getString(1) + resultSet.getString(2));
                         System.out.println(++i + ": " + resultSet.getString(1)
                                 + ", description: " + resultSet.getString(3)
                                 + ", rating: " + resultSet.getString(4));
@@ -151,7 +153,7 @@ public class RatingsSql {
 
                 statement.execute("DELETE FROM ROOT.RATINGS WHERE ISBN = '"
                         + rows.get(choice - 1).substring(0, 15)
-                        + "' AND USER_ID = " + rows.get(choice - 1).substring(15));
+                        + "' AND USER_NAME = '" + rows.get(choice - 1).substring(15) + "'");
 
                 adjustRating(rows.get(choice - 1).substring(0, 15));
                 
@@ -208,19 +210,22 @@ public class RatingsSql {
                     if (isbn == null)
                         System.out.println("Rating_" + (++i) + ":\n"
                                 + "\tIsbn: " + resultSet.getString(1) + "\n"
-                                + "\tUserId: " + resultSet.getInt(2) + "\n"
+                                + "\tUserName: " + resultSet.getString(2) + "\n"
                                 + "\tDescription: " + resultSet.getString(3) + "\n"
                                 + "\tRating: " + resultSet.getDouble(4));
                     else 
                         System.out.println("Rating_" + (++i) + ":\n"
-                                + "\tUserId: " + resultSet.getInt(2) + "\n"
+                                + "\tUserName: " + resultSet.getString(2) + "\n"
                                 + "\tDescription: " + resultSet.getString(3) + "\n"
                                 + "\tRating: " + resultSet.getDouble(4));
                 } while(resultSet.next());
                 System.out.println();
             }
             else
-                System.out.println("RATINGS Table is Empty!");
+                if (isbn == null)
+                    System.out.println("RATINGS Table is Empty!");
+                else 
+                    System.out.println("No Rating!");
         }
         catch (SQLException e) {
             System.out.println(e);
@@ -251,7 +256,7 @@ public class RatingsSql {
         }
     }
     
-    static boolean adjustRating(String isbn) {
+    static void adjustRating(String isbn) {
         Connection connection = null;
         Statement statement = null;
         ResultSet resultSet = null;
@@ -302,7 +307,111 @@ public class RatingsSql {
                     System.out.println(ex);
                 }
         }
+    }
+    
+    static boolean verifyExistenceOfUserRating(String isbn, String userName) {
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        
+        try {
+            connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM ROOT.RATINGS WHERE ISBN = '" + isbn + "'");
+            boolean resultSetHasRows = resultSet.next();
+            if (resultSetHasRows) {
+                if (resultSet.getString(2).equalsIgnoreCase(userName))
+                    return true;
+            }
+            else
+                return false;
+        }
+        catch (SQLException e) {
+            System.out.println(e);
+        }
+        finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                }
+                catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+            }
+            if (statement != null)
+                try {
+                    statement.close();
+                }
+                catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+            if (connection != null)
+                try {
+                    connection.close();
+                }
+                catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+        }
         return false;
+    }
+    
+    static void modifyField() {
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        
+        try {
+            connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM ROOT.RATINGS");
+            boolean resultSetHasRows = resultSet.next();
+            if (resultSetHasRows) {
+                List<String> rows = new ArrayList<>();
+                int i = 0;
+                do {
+                    if (!rows.contains(resultSet.getString(1) + resultSet.getString(2))) {
+                        rows.add(resultSet.getString(1) + resultSet.getString(2));
+                        System.out.println(++i + ": " + resultSet.getString(1)
+                                + ", description: " + resultSet.getString(3)
+                                + ", rating: " + resultSet.getString(4));
+                    }
+                } while(resultSet.next());
+
+                int choice = new LegalValue().getLegalValue(i);
+
+                update(rows.get(choice - 1).substring(0, 15), rows.get(choice - 1).substring(15));
+            }
+            else
+                System.out.println("Ratings Table is Empty!");
+        }
+        catch (SQLException e) {
+            System.out.println(e);
+        }
+        finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                }
+                catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+            }
+            if (statement != null)
+                try {
+                    statement.close();
+                }
+                catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+            if (connection != null)
+                try {
+                    connection.close();
+                }
+                catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+        }
     }
     
 }

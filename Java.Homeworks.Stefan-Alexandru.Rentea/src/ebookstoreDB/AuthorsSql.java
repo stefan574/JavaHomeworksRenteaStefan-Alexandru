@@ -213,9 +213,9 @@ public class AuthorsSql {
                 }
             else
                 if (isbn == null)
-                    System.out.println("No Author!");
-                else 
                     System.out.println("AUTHORS Table is Empty!");
+                else 
+                    System.out.println("No Author!");
         }
         catch (SQLException e) {
             System.out.println(e);
@@ -245,47 +245,5 @@ public class AuthorsSql {
                 }
         }
     }
-    
-    /*static boolean isEmpty() {
-        Connection connection = null;
-        Statement statement = null;
-        ResultSet resultSet = null;
-        
-        try {
-            connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM ROOT.AUTHORS");
-            boolean resultSetHasRows = resultSet.next();
-            return !resultSetHasRows;
-        }
-        catch (SQLException e) {
-            System.out.println(e);
-        }
-        finally {
-            if (resultSet != null) {
-                try {
-                    resultSet.close();
-                }
-                catch (SQLException ex) {
-                    System.out.println(ex);
-                }
-            }
-            if (statement != null)
-                try {
-                    statement.close();
-                }
-                catch (SQLException ex) {
-                    System.out.println(ex);
-                }
-            if (connection != null)
-                try {
-                    connection.close();
-                }
-                catch (SQLException ex) {
-                    System.out.println(ex);
-                }
-        }
-        return false;
-    }*/
     
 }

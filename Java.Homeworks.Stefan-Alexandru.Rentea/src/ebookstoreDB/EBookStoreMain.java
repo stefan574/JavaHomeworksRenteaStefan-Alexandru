@@ -15,6 +15,7 @@ public class EBookStoreMain {
      */
     public static void main(String[] args) {
         //EBooksMenu.eBookStoreMenu(new EBookStore());
+        //DataBase.checkExistenceOfDatabase();
         
         //EBooksSql.selectSorted();
         //AuthorsSql.select(null);
@@ -24,6 +25,8 @@ public class EBookStoreMain {
         //EBooksSql.delete();
         //RatingsSql.delete();
         //RatingsSql.adjustRating("111-12121-12-11");
+        //EBooksSql.addRatingToEBook();
+        //RatingsSql.modifyField();
     }
     
 }
